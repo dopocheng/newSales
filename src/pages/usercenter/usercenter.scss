@@ -1,3 +1,360 @@
-page-usercenter {
+//.header{
+//  display: none;
+//}
+.tabbar { display:flex }
+.scroll-content{
+  margin-top: 0;
+}
 
+page-usercenter{
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  .item-ios[detail-push] .item-inner, button.item-ios:not([detail-none]) .item-inner, a.item-ios:not([detail-none]) .item-inner{
+    background: none;
+  }
+}
+
+.topReturn{
+  height: 44px;
+  line-height: 44px;
+  padding: 0 15px;
+  background: rgba(255,255,255,0.5);
+  a{
+    color: #666;
+    font-size: 16px;
+    text-decoration: none;
+    &.login{
+      float: right;
+    }
+  }
+}
+
+
+.notificationNumber {
+  position: absolute;
+  right: 15px;
+  top:10px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  //border-radius: 6px;
+  //background: #FFFFFF;
+  //box-shadow: 0 8px 18px rgba(250,104,71,.4);
+  text-align: center;
+  .icon{
+    font-size: 26px;
+    margin-top: 8px;
+    color: #FFFFFF;
+  }
+  .badge{
+    position: absolute;
+    right: 9px;
+    background: #f72b44;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    line-height: 18px;
+    top:9px;
+    border:1px solid #FFFFFF;
+    display: block;
+  }
+}
+
+
+.userTopMainBox{
+  width: 100%;
+  background: url("../assets/images/userCenter/mybg.png") no-repeat center top;
+  height: 210px;
+  background-size: 100%;
+  padding-top: 30px;
+  position: relative;
+  text-align: center;
+  position: relative;
+}
+
+.QRCodeContainer {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  padding: 10px;
+}
+
+.notloggedMainBox{
+  width: 100%;
+  text-align: center;
+  h1{
+    color: #FFFFFF;
+    font-size:1.6rem;
+    margin-bottom: 24px;
+  }
+  div{
+    width: 100%;
+    text-align: center;
+    button{
+      width: 80px;
+      height: 27px;
+      line-height: 27px;
+      color: #FFFFFF;
+      background-color: #ff9270;
+      font-size: 1.4rem;
+      margin: 0 14px;
+      border-radius: 30px;
+    }
+  }
+}
+
+.userTxBox{
+  width: 80px;
+  height: 80px;
+  border-radius:100%;
+  overflow: hidden;
+  border: 2px solid #ffffff;
+  margin: 0px auto;
+}
+.userTxBox img{
+  width: 80px;
+  height: 80px;
+  border-radius:100%;
+}
+.userTopMainBox h6{
+  text-align: center;
+  font-size: 16px;
+  color: #ffffff;
+  margin-top: 6px;
+}
+
+.loadButton{
+  display: inline-block;
+  padding: 5px 10px;
+  background: rgba(255,255,255,.8);
+  color: #000000;
+  text-decoration: none;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+  margin-top: 10px;
+}
+
+.userOrderBox{
+  //position: absolute;
+  //width: 90%;
+  //bottom: -40px;
+  //left:50%;
+  padding: 15px 0;
+  overflow: hidden;
+  //margin-left: -45%;
+}
+.userOrderBox ul li{
+  float: left;
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+}
+.unpaiNum{
+  width: 18px;
+  height: 18px;
+  -webkit-border-radius:100%;
+  -moz-border-radius:100%;
+  border-radius:100%;
+  background: #f72b44;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  position: absolute;
+  left: 50%;
+  margin-left: 6px;
+  top:0;
+}
+.userOrderBox ul li p{
+  color: #000000;
+  font-size: 14px;
+  text-align: center;
+  padding: 0;
+  margin-top: 2px;
+}
+.userOrderBox ul li i{
+  display: inline-block;
+  width:40px;
+  height: 40px;
+}
+.userOrderBox ul li .uIcon01{
+  background: url("../assets/images/userCenter/waitpay.svg") no-repeat center;
+  background-size: 100%;
+}
+.userOrderBox ul li .uIcon02{
+  background: url("../assets/images/userCenter/pay.svg") no-repeat center;
+  background-size: 100%;
+}
+.userOrderBox ul li .uIcon03{
+  background: url("../assets/images/userCenter/waitevaluate.svg") no-repeat center;
+  background-size: 100%;
+}
+
+
+.myOrderMainBox{
+  padding:0 15px;
+  background: #FFFFFF;
+  border-bottom: 10px solid #f2f2f7;
+  .myAllOrder{
+    width: 100%;
+    border-bottom: 1px solid #e5e6ef;
+    padding: 15px 0;
+    overflow: hidden;
+    h2{
+      color: #000;
+      font-size: 1.6rem;
+      float: left;
+      font-weight: bold;
+    }
+    p{
+      color: #737799;
+      font-size: 1.2rem;
+      text-decoration: underline;
+      float: right;
+      .icon{
+        font-size: 2.2rem;
+        color: #737799;
+        margin-left: 6px;
+        vertical-align: -5px;
+      }
+    }
+  }
+}
+
+
+
+.listOne button{
+  border-bottom: 1px solid #f2f2f2;
+}
+.listOne .item-block .item-inner{
+  border-bottom: none;
+}
+.listOne .item-block:nth-child(1){
+  border-top:none;
+}
+.listOne .item-block:last-child{
+  border-bottom: none;
+}
+.listOne .item:last-child{
+  margin-bottom: 70px;
+}
+
+.iconBox{
+  width: 24px;
+  height: 24px;
+
+  vertical-align: -5px;
+  margin-right: 13px;
+  &.quotaIcon{
+    background: url("../assets/images/userCenter/quota.svg") no-repeat center;
+    background-size: 24px 24px;
+  }
+  &.walletIcon{
+    background: url("../assets/images/userCenter/walletIcon.svg") no-repeat center;
+    background-size: 24px 24px;
+  }
+  &.writeOffIcon{
+    background: url("../assets/images/userCenter/writeOffIcon.svg") no-repeat center;
+    background-size: 24px 24px;
+  }
+  &.lotteryIcon{
+    background: url("../assets/images/userCenter/lotteryIcon.svg") no-repeat center;
+    background-size: 24px 24px;
+  }
+  &.sjIcon{
+    background: url("../assets/images/userCenter/merchantpreach/xj.svg") no-repeat center;
+    background-size: 24px;
+  }
+  &.playIcon{
+    background: url("../assets/images/userCenter/play.svg") no-repeat center;
+    background-size: 24px;
+  }
+  &.activityexcIcon{
+    background: url("../assets/images/userCenter/activityexcIcon.svg") no-repeat center;
+    background-size: 24px;
+  }
+  &.weitIcon{
+    background: url("../assets/images/userCenter/weitIcon.svg") no-repeat center;
+    background-size: 22px;
+  }
+}
+.icon-order{
+  background: url("../assets/images/userCenter/myorder.png") no-repeat center;
+  background-size: 24px;
+}
+.icon-address{
+  background: url("../assets/images/userCenter/cIcon02.png") no-repeat center;
+  background-size: 24px;
+}
+.icon-coupon{
+  background: url("../assets/images/userCenter/cIcon01.png") no-repeat center;
+  background-size: 24px;
+}
+.icon-sao{
+  background: url("../assets/images/userCenter/cIcon03.png") no-repeat center;
+  background-size: 24px;
+}
+.icon-activity-record{
+  background: url("../assets/images/userCenter/history-icon.png") no-repeat center;
+  background-size: 24px;
+}
+
+.VipNum{
+  position: absolute;
+  left:20px;
+  top:15px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.rightArrow{
+  position: absolute;
+  right:17px;
+  top: 17px;
+  color: #999;
+}
+
+.emptyPage{
+  text-align: center;
+  i{
+    width: 100%;
+    height: 210px;
+    display: inline-block;
+    background: url("../assets/images/userCenter/mybg.png") no-repeat center;
+    background-size: 100% 210px;
+
+  }
+  .loginCen{
+    padding:120px 15px;
+    p{
+      color: #000;
+      font-size: 16px;
+      line-height: 36px;
+      padding-bottom: 20px;
+    }
+  }
+  button{
+    display: inline-block;
+    line-height: 34px;
+    height: 34px;
+    padding: 0 30px;
+    text-align: center;
+    border-radius: 22px;
+    font-size: 16px;
+    color: #fff;
+    border:1px solid #f72b44;
+    background: #f72b44;
+    margin: 0 20px 0 0;
+  }
+  button:last-child{
+    margin-right: 0;
+    color: #f72b44;
+    border:1px solid #f72b44;
+    background: none;
+  }
 }
