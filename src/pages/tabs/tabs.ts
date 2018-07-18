@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Tabs } from 'ionic-angular'
+
+import { UserCenterPage } from '../usercenter/usercenter'
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
@@ -14,7 +16,7 @@ export class TabsPage {
   tab2Root = AboutPage;
   tab3Root = ContactPage;
   tab4Root = ContactPage;
-  tab5Root = ContactPage;
+  tab5Root = UserCenterPage;
 
   constructor() {
 
