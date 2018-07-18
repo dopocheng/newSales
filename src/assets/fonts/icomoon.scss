@@ -1,0 +1,199 @@
+$font-path:'../assets/fonts';
+@font-face {
+  font-family: 'icomoon';
+  src:  url('#{$font-path}/icomoon.eot?uqqimk');
+  src:  url('#{$font-path}/icomoon.eot?uqqimk#iefix') format('embedded-opentype'),
+    url('#{$font-path}/icomoon.ttf?uqqimk') format('truetype'),
+    url('#{$font-path}/icomoon.woff?uqqimk') format('woff'),
+    url('#{$font-path}/icomoon.svg?uqqimk#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+//[class^="ion-"], [class*=" ion-"] {
+//  /* use !important to prevent issues with browser extensions that change fonts */
+//  font-family: 'icomoon' !important;
+//  speak: none;
+//  font-style: normal;
+//  font-weight: normal;
+//  font-variant: normal;
+//  text-transform: none;
+//  line-height: 1;
+//
+//  /* Better Font Rendering =========== */
+//  -webkit-font-smoothing: antialiased;
+//  -moz-osx-font-smoothing: grayscale;
+//}
+
+.icomoon {
+  text-transform: none;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-family: 'icomoon' !important;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  speak: none;
+}
+.ion-ios-activity-icon-outline:before,
+.ion-ios-activity-icon:before,
+.ion-md-activity-icon-outline:before,
+.ion-md-activity-icon:before,
+.ion-ios-classify-icon-outline:before,
+.ion-ios-classify-icon:before,
+.ion-md-classify-icon-outline:before,
+.ion-md-classify-icon:before,
+.ion-ios-myHouse-icon-outline:before,
+.ion-ios-myHouse-icon:before,
+.ion-md-myHouse-icon-outline:before,
+.ion-md-myHouse-icon:before,
+.ion-ios-userCenter-icon-outline:before,
+.ion-ios-userCenter-icon:before,
+.ion-md-userCenter-icon-outline:before,
+.ion-md-userCenter-icon:before,
+.ion-ios-microIcon-outline:before,
+.ion-ios-microIcon:before,
+.ion-md-microIcon-outline:before,
+.ion-md-microIcon:before {
+  @extend .icomoon;
+}
+
+
+
+.ion-ios-microIcon-outline:before {
+  content: "\e900";
+  color: #000000;
+}
+
+.ion-ios-microIcon:before {
+  content: "\e901";
+  color: #f72b44;
+}
+
+.ion-md-microIcon-outline:before {
+  content: "\e900";
+  color: #000000;
+}
+
+.ion-md-microIcon:before {
+  content: "\e901";
+  color: #f72b44;
+}
+
+
+
+.ion-ios-classify-icon-outline:before {
+  content: "\e902";
+  color: #000000;
+}
+.ion-ios-classify-icon:before {
+  content: "\e903";
+  color: #f72b44;
+}
+
+.ion-md-classify-icon-outline:before {
+  content: "\e902";
+  color: #000000;
+}
+.ion-md-classify-icon:before {
+  content: "\e903";
+  color: #f72b44;
+}
+
+
+
+.ion-ios-activity-icon-outline:before {
+   content: "\e904";
+  color: #000000;
+ }
+.ion-ios-activity-icon:before {
+  content: "\e905";
+  color: #f72b44;
+}
+
+.ion-md-b-activity-icon-outline:before {
+  content: "\e904";
+  color: #000000;
+}
+.ion-md-b-activity-h-icon:before {
+  content: "\e905";
+  color: #f72b44;
+}
+
+
+
+.ion-ios-userCenter-icon-outline:before {
+  content: "\e906";
+  color: #000000;
+}
+.ion-ios-userCenter-icon:before {
+  content: "\e907";
+  color: #f72b44;
+}
+.ion-md-userCenter-icon-outline:before {
+  content: "\e906";
+  color: #000000;
+}
+.ion-md-userCenter-icon:before {
+  content: "\e907";
+  color: #f72b44;
+}
+
+
+
+.ion-ios-myHouse-icon-outline:before {
+  content: "\e908";
+  color: #000000;
+}
+.ion-ios-myHouse-icon:before {
+  content: "\e909";
+  color: #f72b44;
+}
+.ion-md-myHouse-icon-outline:before {
+  content: "\e908";
+  color: #000000;
+}
+.ion-md-myHouse-icon:before {
+  content: "\e909";
+  color: #f72b44;
+}
+
+
+
+//.ion-microIcon-icon:before {
+//  content: "\e900";
+//}
+//.ion-microIcon-Hicon:before {
+//  content: "\e901";
+//  color: #f72b44;
+//}
+//.ion-b-ification-icon:before {
+//  content: "\e902";
+//}
+//.ion-b-ification-h-icon:before {
+//  content: "\e903";
+//  color: #f72b44;
+//}
+//.ion-b-activity-icon:before {
+//  content: "\e904";
+//}
+//.ion-b-activity-h-icon:before {
+//  content: "\e905";
+//  color: #f72b44;
+//}
+//.ion-b-personal-icon:before {
+//  content: "\e906";
+//}
+//.ion-b-personal-h-icon:before {
+//  content: "\e907";
+//  color: #f72b44;
+//}
+//.ion-b-home-icon:before {
+//  content: "\e908";
+//}
+//.ion-b-home-h-icon:before {
+//  content: "\e909";
+//  color: #f72b44;
+//}
