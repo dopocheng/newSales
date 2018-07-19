@@ -27,6 +27,7 @@
     "cordova-hot-code-push-plugin": "^1.5.3",
     "ionic-angular": "^3.9.2",
     "ionicons": "3.0.0",
+    "ngx-qrcode3": "^0.3.0",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"

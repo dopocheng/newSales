@@ -1,49 +1,105 @@
 
-<ion-header>
+<ion-header id="UserCenterHeader">
   <ion-navbar>
-    <ion-title>个人中心</ion-title>
+    <ion-title>
+      个人中心
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <div>
-    <div>
+  <!-- 判断有顾客ID则显示 -->
+  <div *ngIf="!customerId">
+    <div class="userTopMainBox">
       <!-- 已登录 -->
       <div>
-        <img />img
-      </div>
-      <div></div>
+        <div class="userTxBox">
+          <img img-lazy-load [src]="avatarUrl" />
+        </div>
+        <div class="QRCodeContainer">
 
-      <h6>customer</h6>
-      <div>VIP编号:xxx</div>
+        </div>
+           
+
+        <h6>customer</h6>
+        <div class="VipNum">VIP编号:xxx</div>
+
+        <div class="notificationNumber">
+          <ion-icon name="notifications"></ion-icon>
+          <ion-badge item-end></ion-badge>
+        </div>
+    </div>
 
       <!-- 未登录 -->
-      <div> 嗨~, 等你很久了哦</div>
+      <div class="notloggedMainBox" style="display:none"> <h1>嗨~, 等你很久了哦</h1>
       <div>
         <button>登录</button>
         <button>注册</button>
       </div>
     </div>
-    <!-- 支付状况 -->
-    <div>
-      <div>
+    </div>
+    <!-- 我的订单 -->
+    <div clas="myOrderMainBox">
+      <div class="userOrderBox">
         <ul>
-          <li><i>uicono1</i><p>待支付</p><div>未支付账单</div>
-          <li><i>uicono2</i><p>已支付</p>
-          <li><i>uicono3</i><p>待晒单</p>
+          <li><i class="uIcon01"></i><p>待支付</p><div class="unpaiNum">1</div>
+          <li><i class="uIcon02"></i><p>已支付</p>
+          <li><i class="uIcon03"></i><p>待晒单</p>
           </li>
         </ul>
       </div>
     </div>
 
     <!-- 个人信息 -->
-    <ion-list>
-
-    </ion-list>
+  <ion-list class="listOne">
+    <!--<button ion-item (click)="gotoMyorderPage()"><ion-icon  class="iconBox icon-order"></ion-icon>我的订单<ion-icon class="rightArrow" name="ios-arrow-forward"></ion-icon></button>-->
+    <button ion-item (click)="gotoReceivingAddress()">
+      <ion-icon class="iconBox icon-address"></ion-icon>收货地址
+      <ion-icon class="rightArrow" name="arrow-forward" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </button>
+    <button ion-item *ngIf="siteBoolean == false" (click)="gotoMyCouponPage()">
+      <ion-icon class="iconBox icon-coupon"></ion-icon>我的卡券
+      <ion-icon class="rightArrow" name="arrow-forward" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </button>
+    <button ion-item (click)="gotoActivityhistoryPage()">
+      <ion-icon class="iconBox icon-activity-record"></ion-icon>活动记录
+      <ion-icon class="rightArrow" name="arrow-forward" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </button>
+    <!--额度评测-->
+    <button ion-item (click)="gotoFinancialPage()">
+      <ion-icon class="iconBox quotaIcon"></ion-icon>额度评测
+      <ion-icon class="rightArrow" name="arrow-forward" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </button>
+    <button ion-item (click)="Wallet()">
+      <ion-icon class="iconBox walletIcon"></ion-icon>钱包
+      <ion-icon class="rightArrow" name="arrow-forward" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </button>
+    <button ion-item (click)="previewQRCode()" *ngIf="siteId=='402880ea6029b664016029b66d840000'">
+      <ion-icon class="iconBox lotteryIcon"></ion-icon>抽奖次数
+      <span style="position: absolute;right: 34px;top:17px;">{{activityDrawTime}}</span>
+      <ion-icon class="rightArrow" name="arrow-forward" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </button>
+    <button ion-item (click)="previewGiftCode()" *ngIf="siteId=='402880ea6029b664016029b66d840000'">
+      <ion-icon class="iconBox writeOffIcon"></ion-icon>礼品核销
+      <span style="position: absolute;right: 34px;top:15px;">{{giftStatus}}</span>
+      <ion-icon *ngIf="createdCode1" class="rightArrow" name="arrow-forward" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </button>
+    <!-- 个人推广页 -->
+    <button ion-item (click)="goToUserGeneralizePage()" *ngIf="siteId=='402880ea6029b664016029b66d840001'">
+      <ion-icon class="iconBox activityexcIcon"></ion-icon>活动专属
+      <ion-icon class="rightArrow" name="arrow-forward" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </button>
+    <!--微招贴分享页-->
+    <button ion-item (click)="goToUserposterPage()">
+      <ion-icon class="iconBox weitIcon"></ion-icon>微招贴分享
+      <ion-icon class="rightArrow" name="arrow-forward" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+    </button>
+  </ion-list>
   </div>
 
-  <div>
-    <div>
+  <div *ngIf="customerId" class="emptyPage">
+    <i></i>
+    <div class="loginCen">
       <p>登陆后即可查看、参与更多的功能</p>
       <button>登录</button>
       <button>注册</button>

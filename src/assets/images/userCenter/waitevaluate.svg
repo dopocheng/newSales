@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>待支付订单 copy 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="待支付订单-copy-5" transform="translate(0.000000, -1.000000)">
+            <g id="Group-8">
+                <rect id="Rectangle-18" fill="#FFA20B" x="10.3946381" y="1" width="43.2234192" height="12"></rect>
+                <rect id="Rectangle-17" fill="#FFBB4C" transform="translate(15.196152, 21.320508) rotate(-30.000000) translate(-15.196152, -21.320508) " x="9.19615242" y="1.32050808" width="12" height="40"></rect>
+                <polygon id="Rectangle-17-Copy" fill="#FFBB4C" transform="translate(48.343764, 22.083185) rotate(30.000000) translate(-48.343764, -22.083185) " points="42.35577 1.19558962 54.3437635 1.17293083 54.3437635 42.9934389 42.3437635 42.9934389"></polygon>
+                <circle id="Oval-6" fill="#FF9F50" cx="32" cy="42" r="23"></circle>
+                <polygon id="Star" fill="#FFFFFF" points="32 49 23.7710065 53.3262379 25.3426044 44.163119 18.6852088 37.6737621 27.8855032 36.336881 32 28 36.1144968 36.336881 45.3147912 37.6737621 38.6573956 44.163119 40.2289935 53.3262379"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
