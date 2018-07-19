@@ -9,7 +9,7 @@
 
 <ion-content>
   <!-- 判断有顾客ID则显示 -->
-  <div *ngIf="!customerId">
+  <div *ngIf="customerId">
     <div class="userTopMainBox">
       <!-- 已登录 -->
       <div>
@@ -97,11 +97,11 @@
   </ion-list>
   </div>
 
-  <div *ngIf="customerId" class="emptyPage">
+  <div *ngIf="!customerId" class="emptyPage">
     <i></i>
     <div class="loginCen">
       <p>登陆后即可查看、参与更多的功能</p>
-      <button>登录</button>
+      <button (click)="gotoLogin()">登录</button>
       <button>注册</button>
     </div>
   </div>

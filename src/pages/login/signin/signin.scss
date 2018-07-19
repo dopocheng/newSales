@@ -1,0 +1,444 @@
+
+//.header{
+//  display: none;
+//}
+
+.scroll-content{
+    margin-top: 0;
+  }
+  
+  page-signin {
+    .loginBg{
+      background: $newbgColor;
+    }
+    .text-input::-moz-placeholder {
+      color: $newinputColor;
+    }
+  
+    .text-input:-ms-input-placeholder {
+      color:$newinputColor;
+    }
+  
+    .text-input::-webkit-input-placeholder {
+      color: $newinputColor;
+    }
+  
+    page-signin .loginPage input[placeholder], page-signin .loginPage [placeholder], page-signin .loginPage *[placeholder]{
+      color: #fff;
+    }
+  
+    .input{
+      color: #fff;
+      .text-input{
+        color: #fff;
+      }
+    }
+    .loginPage{
+      padding: 20px 15px 0;
+      text-align: center;
+  
+      //new
+      .segment{
+        background:none;
+        border-radius: 0;
+        text-align: left;
+        margin-top: 20px;
+        box-shadow: none;
+        .segment-button{
+          margin: 0;
+          height: 48px;
+          border: none;
+          font-size: 16px;
+          text-align: center;
+          line-height: 48px;
+          color: #515366;
+          &.segment-activated{
+            background: none;
+            color: #000000;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: underline;
+          }
+        }
+        .segment-button:nth-child(1){
+          &.segment-activated{
+            border-radius: 4px 0 0 4px;
+          }
+        }
+        .segment-button:nth-child(2){
+          &.segment-activated{
+            border-radius: 0 4px 4px 0;
+          }
+        }
+      }
+      .item{
+        background: none;
+        border: none;
+        padding-left: 0;
+        .item-inner{
+          padding-right: 0;
+        }
+        .label{
+          margin: 0;
+        }
+      }
+  
+      .list-ios > .item-block:last-child{
+        border: none;
+      }
+  
+  
+      .inputBox{
+        padding:0 0 0;
+        .prompt{
+          margin-top: 20px;
+          .item{
+            padding-left: 0;
+            border-radius: 4px;
+            background: none;
+            box-shadow: none;
+            &.item-inner{
+              border-bottom: none;
+            }
+            input{
+              padding-left: 10px;
+              color: #515366;
+            }
+          }
+        }
+  
+        .inputCode{
+          position: relative;
+          .yzmBut{
+            position: absolute;
+            bottom:13px;
+            right:5px;
+            width: auto;
+            margin: 0;
+            line-height: 27px;
+            height: 27px;
+            color: #f72b44;
+            border-radius: 50px;
+            background: #fff;
+            box-shadow: none;
+          }
+          .text-input-clear-icon{
+            right:33%
+          }
+        }
+  
+        .text-input-clear-icon{
+          margin: 5px 0 0;
+          height: 30px;
+          line-height: 30px;
+          box-shadow:none;
+        }
+  
+        .prompt{
+          position: relative;
+          .default{
+            position: absolute;
+            left: 2px;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            border-radius: 0;
+            background: $newborderColor;
+            &.success{
+              background: #00cb18;
+            }
+            &.error{
+              background: #E5E6EF;
+            }
+          }
+        }
+  
+      }
+  
+      .bottomLogin{
+        width: 100%;
+        overflow: hidden;
+        margin-top: 18px;
+        .sigunupBot{
+          display: inline-block;
+          text-align: left;
+          font-size: 18px;
+          float:left;
+          color: #fff;
+          line-height: 36px;
+          margin: 32px 0 0;
+        }
+        button{
+          margin: 32px 0 0;
+          &.obtain{
+            float:right;
+            width: 100%;
+            line-height: 44px;
+            height: 44px;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 16px;
+            background: #f72b44;
+            color: #FFFFFF;
+            box-shadow: 1.176px 1.618px 4px 0 rgba(0, 0, 0, 0.08);
+          }
+        }
+  
+      }
+  
+  
+  
+      .errorTip{
+        margin: 8px 16px;
+        color: #f72b44;
+        font-size: 12px;
+        text-align: left;
+        ion-icon{
+          font-size: 16px;
+          font-weight: bold;
+          margin: 0 6px 0 0;
+          vertical-align: -1px;
+        }
+      }
+  
+  
+      .registerPassword{
+        margin: 12px 0;
+        overflow: hidden;
+        .sigunupBot1{
+          float: left;
+          color: #737799;
+          font-size: 14px;
+          text-decoration: underline;
+          line-height: 24px;
+        }
+        .forgetPassword{
+          float: right;
+          color: #737799;
+          font-size: 12px;
+          text-decoration: underline;
+          line-height: 24px;
+          background: none;
+        }
+      }
+  
+  
+      .thirdLoad{
+        width: 100%;
+        margin-top: 60px;
+        h1{
+          color: #A3A5B7;
+          font-size: 16px;
+          width: 100%;
+          text-align: center;
+          vertical-align: middle;
+        }
+        h1::before{
+          display: inline-block;
+          content: "";
+          width: 32%;
+          height: 1px;
+          background:#A3A5B7;
+          vertical-align: middle;
+          margin-right: 4%;
+        }
+        h1::after{
+          display: inline-block;
+          content: "";
+          width: 32%;
+          height: 1px;
+          background:#A3A5B7;
+          vertical-align: middle;
+          margin-left: 4%;
+        }
+        .threeLoadBox{
+          width: 100%;
+          margin-top: 40px;
+          span{
+            display: block;
+            float: left;
+            width: 33.33%;
+            vertical-align: middle;
+            text-align: center;
+            i{
+              display: inline-block;
+              width: 44px;
+              height: 44px;
+            }
+          }
+          .wx{
+            i{
+              background: url("../../assets/images/login/wx.png") no-repeat center;
+              background-size: 100%;
+            }
+          }
+          .wx1{
+            i{
+              background: url("../../assets/images/login/wx1.png") no-repeat center;
+              background-size: 100%;
+            }
+          }
+          .qq{
+            i{
+              background: url("../../assets/images/login/qq.png") no-repeat center;
+              background-size: 100%;
+            }
+          }
+          .wb{
+            i{
+              background: url("../../assets/images/login/wb.png") no-repeat center;
+              background-size: 100%;
+            }
+          }
+        }
+      }
+  
+  
+      //手机验证
+      .code{
+        background: #fff;
+        line-height: 45px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: none;
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        color: #73779a;
+        font-size: 16px;
+        box-shadow: 1.176px 1.618px 4px 0 rgba(0, 0, 0, 0.08);
+        input{
+          width: 70%;
+          border: none;
+          float: left;
+          line-height: 45px;
+          margin-top: 0;
+          background: #fff;
+          box-shadow: none;
+        }
+        button{
+          width: 30%;
+          font-size: 14px;
+          float: left;
+          border: none;
+          background: #e6e6f0;
+          color: #515467;
+          margin-top: 0;
+          line-height: 45px;
+          border-radius: 0 4px 4px 0;
+          box-shadow: none;
+        }
+      }
+  
+      input[placeholder], [placeholder], *[placeholder] {
+        color:#fff;
+      }
+  
+      .signupText{
+        margin: 25rem 0 0;
+        overflow: hidden;
+        display: block;
+        button{
+          font-size: 18px;
+          color: #fff;
+          background: none;
+          padding: 0 10px;
+          line-height: 26px;
+          text-decoration: underline;
+        }
+        button:nth-child(1){
+          float: left;
+        }
+        button:nth-child(2){
+          float: right;
+        }
+      }
+    }
+  
+    .list-ios{
+      margin: 0;
+    }
+  
+    .list{
+      .label{
+        .item-block{
+          .item-inner{
+            border: none;
+          }
+        }
+      }
+      &.list-ios .item-block .item-inner{
+        border: none;
+        box-shadow:none;
+      }
+      &.list-md .item-block .item-inner{
+        border: none;
+        box-shadow:none;
+      }
+      .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
+        border: none;
+        box-shadow:none;
+      }
+      .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
+        border: none;
+        box-shadow:none;
+      }
+  
+  
+  
+  
+  
+    }
+  
+    .partySignin{
+      padding:30px 15px 20px;
+      text-align: right;
+      h3{
+        font-size: 16px;
+        color: #515467;
+      }
+  
+      .button-ios{
+        background-color: #f72b44;
+      }
+  
+      .parSinList{
+        padding: 15px 0;
+        a{
+          width: 40px;
+          height: 40px;
+          text-indent: -9999px;
+          display: inline-block;
+          &.wechat{
+            background: url("../assets/images/login/wechat.svg") no-repeat center center;
+            background-size: 40px 40px;
+          }
+        }
+      }
+    }
+    .backPrepage{
+      width: 68px;
+      height: 68px;
+      background-color: #ffffff;
+      box-shadow: 0 8px 16px 0 rgba(143, 166, 222, 0.3);
+      border: solid 1px #f1f5ff;
+      text-align: center;
+      border-radius: 100%;
+      //position: fixed;
+      //right:15px;
+      //bottom:66px;
+      color: #2665ff;
+      font-size: 1rem;
+      float:right;
+      margin:10px 20px 0 0;
+      i{
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/microhome/back.svg) no-repeat center;
+        background-size: 100%;
+        margin: 10px auto 2px;
+      }
+    }
+  }
+  

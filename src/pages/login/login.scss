@@ -1,0 +1,129 @@
+//.header{
+//  display: none;
+//}
+.scroll-content{
+    margin-top: 0;
+  }
+  
+  input[type='number'] {
+    -moz-appearance:textfield;
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin:0;
+  }
+  
+  $newbgColor:#d92037;
+  $newborderColor:#E5E6EF;
+  $newinputColor:#CCCDD7;
+  $newfontColor:#f72b44;
+  
+  
+  
+  page-login {
+  
+    .text-input::-moz-placeholder {
+      color: $newinputColor;
+    }
+  
+    .text-input:-ms-input-placeholder {
+      color:$newinputColor;
+    }
+  
+    .text-input::-webkit-input-placeholder {
+      color: $newinputColor;
+    }
+  
+    page-signin .loginPage input[placeholder], page-signin .loginPage [placeholder], page-signin .loginPage *[placeholder]{
+      color: #fff;
+    }
+  
+    .wechat{
+      background: url(../assets/images/userCenter/mybg.png) left top no-repeat;
+      background-size: 100% 210px;
+    }
+    .loginBg{
+      background: #fff;
+    }
+    .personalInfo{
+      text-align: center;
+      padding: 160px 15px 0;
+      img{
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        box-shadow: 0 2px 9px 0 rgba(183, 137, 112, 0.22);
+      }
+      span{
+        font-size: 16px;
+        color: #000;
+        font-weight:bold;
+        display: block;
+        line-height: 40px;
+      }
+    }
+    .loginCen{
+      text-align: center;
+      padding: 20px 15px 0;
+      p{
+        text-align: center;
+        color: #000;
+        font-size: 16px;
+        line-height: 28px;
+      }
+      button{
+        width: 100%;
+        line-height: 44px;
+        height: 44px;
+        text-align: center;
+        border-radius: 22px;
+        font-size: 18px;
+        margin-top: 25px;
+        box-shadow: none;
+        &.confirmL{
+          background: $newfontColor;
+          color: #fff;
+        }
+        &.otherL{
+          background:none;
+          color: #b6b8cc;
+          border:none;
+          text-decoration: underline;
+        }
+      }
+    }
+  
+    .app{
+      padding: 50px 0 30px;
+      text-align: center;
+      img{
+        width: 90px;
+        height: 90px;
+      }
+    }
+  
+    .backPrepage{
+      width: 68px;
+      height: 68px;
+      background-color: #ffffff;
+      box-shadow: 0 8px 16px 0 rgba(143, 166, 222, 0.3);
+      border: solid 1px #f1f5ff;
+      text-align: center;
+      border-radius: 100%;
+      position: fixed;
+      right:15px;
+      bottom:66px;
+      color: #2665ff;
+      font-size: 1rem;
+      i{
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/microhome/back.svg) no-repeat center;
+        background-size: 100%;
+        margin: 10px auto 2px;
+      }
+    }
+  }
+  

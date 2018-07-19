@@ -1,0 +1,158 @@
+
+<ion-header>
+    <ion-navbar>
+      <ion-title>身边的家账号登录</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content>
+    <!--<ion-buttons end>-->
+      <!--<button ion-button icon-only (click)="goBack()">-->
+        <!--<ion-icon ios="ios-home" md="md-home"></ion-icon>-->
+      <!--</button>-->
+    <!--</ion-buttons>-->
+    <div class="loginPage">
+      <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="phone">
+         验证码登录
+        </ion-segment-button>
+        <ion-segment-button value="account">
+          账号登录
+        </ion-segment-button>
+      </ion-segment>
+
+      <div [ngSwitch]="pet">   
+        <ion-list *ngSwitchCase="'phone'">
+          <form [formGroup]="phoneLoginForm" (ngSubmit)="phoneLogin(phoneLoginForm.value)" novalidate>
+            <!--手机号验证登录-->
+            <div class="inputBox">
+                <div class="prompt validation">
+                  <ion-item [class.error]="!phone.valid && phone.touched">
+                    <ion-input type="number" value="" placeholder="手机号" formControlName="phone" clearInput="true"></ion-input>
+                  </ion-item>
+                  <div class="default" [class.error]="!phone.valid && phone.touched"
+                       [class.success]="phone.valid"></div>
+                </div>
+  
+  
+  
+            <div class="inputCode">
+              <div class="prompt">
+                <ion-item [class.error]="!code.valid && code.touched">
+                  <ion-input (ionChange)="clearErrorTip()" type="number" value="" placeholder="验证码" formControlName="code" clearInput="true"></ion-input>
+                </ion-item>
+                <div class="default" [class.error]="!code.valid && code.touched"
+                     [class.success]="code.valid"></div>
+              </div>
+              <button class="yzmBut" ion-button *ngIf="!codeSended" [disabled]="!phone.valid" type="button"
+                      (click)="sendCode(phoneLoginForm.value)">
+                获取验证码
+              </button>
+              <button class="yzmBut" ion-button *ngIf="codeSended" disabled="true">({{count}})已发送</button>
+            </div>
+            </div>
+  
+  
+            <!--错误信息提示-->
+            <div class="errorTip" *ngIf="errorTip"><ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>{{errorTip}}</div>
+  
+            <div class="bottomLogin">
+              <!--<div class="sigunupBot" (click)="gotoSignupPage()">注册</div>-->
+              <button ion-button class="obtain" type="submit" [disabled]="!phoneLoginForm.valid">登录</button>
+            </div>
+  
+             <!--新用户注册忘记密码-->
+            <div class="registerPassword">
+              <div class="sigunupBot1" (click)="gotoSignupPage()">新用户注册</div>
+              <div class="forgetPassword" (click)="ForgetpasswordPage()">忘记密码？</div>
+            </div>
+  
+  
+            <!--第三方登录-->
+            <div class="thirdLoad">
+              <h1>第三方登录</h1>
+              <div class="threeLoadBox">
+                <span (click)="wxLogin()" *ngIf="isWeixin" class="wx"><i></i></span>
+                <span  *ngIf="!isWeixin" class="wx1"><i></i></span>
+                <span class="qq"><i></i></span>
+                <span class="wb"><i></i></span>
+              </div>
+  
+            </div>
+  
+  
+          </form>
+        </ion-list>
+  
+        <ion-list *ngSwitchCase="'account'">
+          <form [formGroup]="accountLoginForm" (ngSubmit)="accountLogin(accountLoginForm.value)" novalidate>
+            <ion-item>
+              <!--账号登录-->
+              <p>13123123123</p>
+              <div class="inputBox accountBox">
+                <div class="prompt">
+                  <ion-item>
+                    <p>qeqwewqeqweqwqweqwe</p>
+                    <ion-input type="number" value="" placeholder="手机号" formControlName="loginName"
+                               clearInput=true></ion-input>
+                  </ion-item>
+                  <div class="default" [class.error]="!loginName.valid && loginName.touched"
+                       [class.success]="loginName.valid"></div>
+                </div>
+                <div class="prompt">
+                  <ion-item>
+                    <ion-input (ionChange)="clearErrorTip1()" type="password" value="" placeholder="请输入8位数及以上密码" formControlName="password"
+                               clearInput=true></ion-input>
+                  </ion-item>
+                  <div class="default" [class.error]="!password.valid && password.touched"
+                       [class.success]="password.valid"></div>
+  
+                </div>
+                </div>
+  
+  
+            </ion-item>
+  
+            <!--错误信息提示-->
+            <div class="errorTip" *ngIf="errorTip1"><ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>{{errorTip1}}</div>
+  
+            <div class="bottomLogin">
+              <!--<div class="sigunupBot" (click)="gotoSignupPage()">注册</div>-->
+              <button ion-button class="obtain" type="submit" [disabled]="!accountLoginForm.valid">登录</button>
+            </div>
+  
+            <!--新用户注册忘记密码-->
+            <div class="registerPassword">
+              <div class="sigunupBot1" (click)="gotoSignupPage()">新用户注册</div>
+              <div class="forgetPassword" (click)="ForgetpasswordPage()">忘记密码？</div>
+            </div>
+  
+  
+            <!--第三方登录-->
+            <div class="thirdLoad">
+              <h1>第三方登录</h1>
+              <div class="threeLoadBox">
+                <span (click)="wxLogin()" *ngIf="isWeixin" class="wx"><i></i></span>
+                <span  *ngIf="!isWeixin" class="wx1"><i></i></span>
+                <span class="qq"><i></i></span>
+                <span class="wb"><i></i></span>
+              </div>
+  
+            </div>
+  
+          </form>
+        </ion-list>
+  
+  
+      </div>
+      <!--<div class="signupText">-->
+        <!--<button (click)="ForgetpasswordPage()">忘记密码？</button>-->
+      <!--</div>-->
+    </div>
+  
+    <!--返回主页面-->
+    <!-- <div class="backPrepage" (click)="gotoPrePage()"><i></i>返回上级</div> -->
+  
+  </ion-content>
+  

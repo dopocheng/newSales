@@ -8,6 +8,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { SigninPage } from '../pages/login/signin/signin'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,7 +21,8 @@ import { NgxQRCodeModule } from 'ngx-qrcode3'
     ContactPage,
     HomePage,
     TabsPage,
-    UserCenterPage
+    UserCenterPage,
+    SigninPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { NgxQRCodeModule } from 'ngx-qrcode3'
     ContactPage,
     HomePage,
     TabsPage,
-    UserCenterPage
+    UserCenterPage,
+    SigninPage
   ],
   providers: [
     StatusBar,

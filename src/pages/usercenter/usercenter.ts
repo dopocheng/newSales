@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SigninPage } from '../login/signin/signin';
 
 /**
  * Generated class for the UsercenterPage page.
@@ -28,6 +29,10 @@ export class UserCenterPage implements OnInit {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad UsercenterPage');
+  }
+
+  gotoLogin() {
+    this.navCtrl.push(SigninPage)
   }
 
 }
