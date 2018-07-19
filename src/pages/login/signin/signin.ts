@@ -47,4 +47,8 @@ export class SigninPage {
     console.log('ionViewDidLoad SigninPage');
   }
 
+  sendCode(value) {
+    
+  }
+
 }
