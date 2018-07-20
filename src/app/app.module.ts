@@ -18,6 +18,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode3'
 import { SendSmsServiceProvider } from '../providers/send-sms-service/send-sms-service';
 import { TokenServiceProvider } from '../providers/token-service/token-service';
 import { UserinfoServiceProvider } from '../providers/userinfo-service/userinfo-service';
+import { CustomerServiceProvider } from '../providers/customer-service/customer-service';
  
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { UserinfoServiceProvider } from '../providers/userinfo-service/userinfo-
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SendSmsServiceProvider,
     TokenServiceProvider,
-    UserinfoServiceProvider
+    UserinfoServiceProvider,
+    CustomerServiceProvider
   ]
 })
 export class AppModule {}

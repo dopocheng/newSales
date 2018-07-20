@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { CustomerServiceProvider } from '../../../providers/customer-service/customer-service'
 import { SendSmsServiceProvider } from './../../../providers/send-sms-service/send-sms-service';
 import { ErrorUtils } from '../../../utils/error.utils';
 
@@ -31,6 +33,8 @@ export class SigninPage implements OnInit{
   password: any;//密码
   phone: any;//手机号
   code: any;//验证码
+  sessionId: string;
+  vistorId: string;
   
   constructor(
               public navCtrl: NavController, 
@@ -38,7 +42,10 @@ export class SigninPage implements OnInit{
               private formBuilder: FormBuilder,
               public sendSmsService: SendSmsServiceProvider,
               public alerCtrl: AlertController,
-  ) {
+              public loadingCtrl: LoadingController,
+              public customerService: CustomerServiceProvider,
+              public viewCtrl: ViewController,
+              ) {
     this.accountLoginForm = this.formBuilder.group({
       loginName: ['', Validators.compose([Validators.required])],
       password: ['', Validators.compose([Validators.required])],
@@ -58,6 +65,8 @@ export class SigninPage implements OnInit{
   ngOnInit(): void {
     //获取本地 token
     this.token = localStorage.getItem("token");
+    this.sessionId = localStorage.getItem("sessionId");
+    this.vistorId = localStorage.getItem("vistorId");
   }
 
   ionViewDidLoad() {
@@ -98,5 +107,43 @@ export class SigninPage implements OnInit{
         ErrorUtils.handleError(error,that.alerCtrl, that.navCtrl, SigninPage);
     })  
   }
+
+  //手机号码提交登录
+  phoneLogin(value) {
+    var that =this;
+    let loading = this.loadingCtrl.create();
+    loading.present();
+    this.customerService.phoneLogin(that.token, value.phone, value.code, that.sessionId, this.vistorId, 0).subscribe(res => {
+      loading.dismiss();
+      console.log(res);
+      if(res && res.errorCode ==0 ) {
+        this.errorTip = "";
+        let customer = res.data;
+        localStorage.setItem("customerId", customer.id);
+        localStorage.setItem("customerToken", customer.token);
+        localStorage.setItem("phone", res.data.phone);
+        localStorage.setItem("name", res.data.name);
+        if(res.data.recordId) {
+          localStorage.setItem("recordId", res.data.recorId);
+        }
+        that.viewCtrl.dismiss();
+      }else if(res.errorCode == 90942) {
+        let tokenErrorAlert = that.alerCtrl.create({
+          title: '提示',
+          message: '登录失败，获取令牌出错!',
+          buttons: ['好的']
+        });
+        tokenErrorAlert.present();
+      }
+    },error => {
+      ErrorUtils.handleError(error, that.alerCtrl, that.navCtrl, SigninPage);
+    })
+  }
+
+ //清除验证码
+  clearErrorTip(){
+    this.errTip = "";
+  }
+
 
 }
