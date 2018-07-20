@@ -35,6 +35,7 @@ export class SigninPage implements OnInit{
   code: any;//验证码
   sessionId: string;
   vistorId: string;
+  isWeixin:boolean = false;
   
   constructor(
               public navCtrl: NavController, 
@@ -68,6 +69,13 @@ export class SigninPage implements OnInit{
     this.sessionId = localStorage.getItem("sessionId");
     this.vistorId = localStorage.getItem("vistorId");
   }
+
+  ionViewWillEnter() {
+    var ua = navigator.userAgent.toLowerCase();
+    //console.log("当前浏览器环境",ua);
+    this.isWeixin = ua.indexOf("micromessenger")!=-1? true:false;
+    //console.log(this.isWeixin);
+    }
 
   ionViewDidLoad() {
     // console.log('ionViewDidLoad SigninPage');
@@ -127,17 +135,33 @@ export class SigninPage implements OnInit{
           localStorage.setItem("recordId", res.data.recorId);
         }
         that.viewCtrl.dismiss();
-      }else if(res.errorCode == 90942) {
-        let tokenErrorAlert = that.alerCtrl.create({
+      }else if(res.errorCode == 90938) {
+        let phoneUnUsedAlert = that.alerCtrl.create({
           title: '提示',
-          message: '登录失败，获取令牌出错!',
-          buttons: ['好的']
+          message: '该手机还未注册，是否立即成为家瓦会员?',
+          buttons: [{
+            text: '成为会员',
+            handler: () => {
+              if(!this.isWeixin) {
+                this.viewCtrl.dismiss();
+                // this.navCtrl.push(SignupPage);
+              }else{
+                // this.signup(value);
+              }
+            }
+          },{
+            text: '返回',
+            handler: () => {
+            return;
+            }
+          }
+        ]
         });
-        tokenErrorAlert.present();
+        phoneUnUsedAlert.present();
       }
     },error => {
       ErrorUtils.handleError(error, that.alerCtrl, that.navCtrl, SigninPage);
-    })
+    });
   }
 
  //清除验证码
