@@ -14,37 +14,46 @@
         账号登录
       </ion-segment-button>
     </ion-segment>
-
+    <!--ngSwitch *ngSwitchCase 就是当符合条件后就会显示对应的内容，而当前面的所有 ngSwitchCase 的情况都没有匹配到的时候就默认显示最后 -->
     <div [ngSwitch]="pet">
-      <ion-list *ngSwitchCase="'phone'">
+       <ion-list *ngSwitchCase="'phone'">
         <form [formGroup]="phoneLoginForm" (ngSubmit)="phoneLogin(phoneLoginForm.value)" novalidate>
           <!--手机号验证登录-->
-          <div class="inputBox">
-            <div class="prompt validation">
-              <ion-item [class.error]="!phone.valid && phone.touched">
-                <ion-input type="number" value="" placeholder="手机号" formControlName="phone" clearInput="true"></ion-input>
-              </ion-item>
+            <div class="inputBox">
+
+              <!-- 输入手机号 -->
+              <div class="prompt validation">
+                <ion-item [class.error]="!phone.valid && phone.touched">
+                  <ion-input type="number" value="" placeholder="手机号" formControlName="phone" clearInput="true"></ion-input>
+                </ion-item>
               <div class="default" [class.error]="!phone.valid && phone.touched" [class.success]="phone.valid"></div>
             </div>
+            
             <div class="inputCode">
+
+              <!-- 输入验证码 -->
               <div class="prompt">
                 <ion-item [class.error]="!code.valid && code.touched">
                   <ion-input (ionChange)="clearErrorTip()" type="number" value="" placeholder="验证码" formControlName="code" clearInput="true"></ion-input>
                 </ion-item>
                 <div class="default" [class.error]="!code.valid && code.touched" [class.success]="code.valid"></div>
               </div>
+
+              <!-- 发送验证码 -->
               <button class="yzmBut" ion-button *ngIf="!codeSended" [disabled]="!phone.valid" type="button" (click)="sendCode(phoneLoginForm.value)">
                 获取验证码
               </button>
               <button class="yzmBut" ion-button *ngIf="codeSended" disabled="true">({{count}})已发送</button>
             </div>
           </div>
+
           <!--错误信息提示-->
           <div class="errorTip" *ngIf="errorTip">
-            <ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>{{errorTip}}</div>
+            <ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>{{errorTip}}
+          </div>
 
+          <!-- 登录 -->
           <div class="bottomLogin">
-            <!--<div class="sigunupBot" (click)="gotoSignupPage()">注册</div>-->
             <button ion-button class="obtain" type="submit" [disabled]="!phoneLoginForm.valid">登录</button>
           </div>
 
@@ -75,36 +84,33 @@
         </form>
       </ion-list>
 
+      <!--账号登录-->
       <ion-list *ngSwitchCase="'account'">
         <form [formGroup]="accountLoginForm" (ngSubmit)="accountLogin(accountLoginForm.value)" novalidate>
           <ion-item>
-            <!--账号登录-->
             <div class="inputBox accountBox">
+              <!--输入账号-->
               <div class="prompt">
                 <ion-item>
-                  <p>qeqwewqeqweqwqweqwe</p>
                   <ion-input type="number" value="" placeholder="手机号" formControlName="loginName" clearInput=true></ion-input>
                 </ion-item>
                 <div class="default" [class.error]="!loginName.valid && loginName.touched" [class.success]="loginName.valid"></div>
               </div>
+              <!-- 输入密码 -->
               <div class="prompt">
                 <ion-item>
                   <ion-input (ionChange)="clearErrorTip1()" type="password" value="" placeholder="请输入8位数及以上密码" formControlName="password" clearInput=true></ion-input>
                 </ion-item>
                 <div class="default" [class.error]="!password.valid && password.touched" [class.success]="password.valid"></div>
-
               </div>
             </div>
-
-
           </ion-item>
 
           <!--错误信息提示-->
           <div class="errorTip" *ngIf="errorTip1">
-            <ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>{{errorTip1}}</div>
-
+            <ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>{{errorTip1}}
+          </div>
           <div class="bottomLogin">
-            <!--<div class="sigunupBot" (click)="gotoSignupPage()">注册</div>-->
             <button ion-button class="obtain" type="submit" [disabled]="!accountLoginForm.valid">登录</button>
           </div>
 
@@ -113,7 +119,6 @@
             <div class="sigunupBot1" (click)="gotoSignupPage()">新用户注册</div>
             <div class="forgetPassword" (click)="ForgetpasswordPage()">忘记密码？</div>
           </div>
-
 
           <!--第三方登录-->
           <div class="thirdLoad">
@@ -138,5 +143,5 @@
     </div>
   </div>
   <!--返回主页面-->
-  <!-- <div class="backPrepage" (click)="gotoPrePage()"><i></i>返回上级</div> -->
+  <div class="backPrepage" (click)="gotoPrePage()"><i></i>返回上级</div>
 </ion-content>

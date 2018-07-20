@@ -25,7 +25,7 @@ export class UserCenterPage implements OnInit {
   }
   
   ngOnInit(): void {
-    console.error("Method not implemented.");
+   
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad UsercenterPage');
