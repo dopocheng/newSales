@@ -120,7 +120,7 @@ export class SigninPage implements OnInit{
   phoneLogin(value) {
     var that =this;
     let loading = this.loadingCtrl.create();
-    loading.present();
+    loading.present()
     this.customerService.phoneLogin(that.token, value.phone, value.code, that.sessionId, this.vistorId, 0).subscribe(res => {
       loading.dismiss();
       console.log(res);
@@ -152,12 +152,18 @@ export class SigninPage implements OnInit{
           },{
             text: '返回',
             handler: () => {
-            return;
+              return;
             }
           }
         ]
         });
         phoneUnUsedAlert.present();
+      } else if (res.errorCode == 90933) {
+        this.errTip = "验证码错误，请重新输入！"
+      }else if(res.errorCode == 90946) {
+        this.errTip = "验证码错误，请重新输入！"
+      }else if(res.errorCode == 90942) {
+        this.errTip = "登录失败，获取令牌出错！"
       }
     },error => {
       ErrorUtils.handleError(error, that.alerCtrl, that.navCtrl, SigninPage);
@@ -167,6 +173,10 @@ export class SigninPage implements OnInit{
  //清除验证码
   clearErrorTip(){
     this.errTip = "";
+  }
+//清除用户
+  clearErrorTip1(){
+    this.errorTip = "";
   }
 
 

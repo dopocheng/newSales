@@ -1,11 +1,17 @@
 export class AppConfig {
-    public static SERVER_URL = "http://localhost:8101";
+    public static SERVER_URL = "http://localhost:8100";
 
     public static appUrl(): string {
         return AppConfig.SERVER_URL + "/backend-api";
     }
 
-    //api调用URL
+    /**
+     * 调用挨批后台路径
+     * @pitcher
+     * @static
+     * @returns {string} 
+     * @memberof AppConfig
+     */
     public static apiUrl(): string {
         return AppConfig.appUrl() + "/v1/api";
     }

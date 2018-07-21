@@ -53,7 +53,8 @@ import { CustomerServiceProvider } from '../providers/customer-service/customer-
     SendSmsServiceProvider,
     TokenServiceProvider,
     UserinfoServiceProvider,
-    CustomerServiceProvider
+    CustomerServiceProvider,
+    UserinfoServiceProvider
   ]
 })
 export class AppModule {}
