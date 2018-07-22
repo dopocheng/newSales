@@ -10,6 +10,17 @@ export class SendSmsServiceProvider {
     console.log('Hello SendSmsServiceProvider Provider');
   }
 
+  /**
+   * 请求验证码 api
+   * @pitcher
+   * @param {any} token 
+   * @param {any} phone 
+   * @param {any} template 
+   * @param {any} platFormFlag 
+   * @param {any} nationCode 
+   * @returns 
+   * @memberof SendSmsServiceProvider
+   */
   sendValidateCode(token, phone, template, platFormFlag, nationCode) {
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencode' });
     let options = new RequestOptions({ headers: headers });

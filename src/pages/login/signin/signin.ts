@@ -71,10 +71,10 @@ export class SigninPage implements OnInit{
   }
 
   ionViewWillEnter() {
+    //获取当前浏览器环境,ua
     var ua = navigator.userAgent.toLowerCase();
-    //console.log("当前浏览器环境",ua);
+    // 判断是否微信
     this.isWeixin = ua.indexOf("micromessenger")!=-1? true:false;
-    //console.log(this.isWeixin);
     }
 
   ionViewDidLoad() {
@@ -88,6 +88,7 @@ export class SigninPage implements OnInit{
       var oldIndex = parseInt(localStorage.getItem("platFormFlag"));
       oldIndex++;
       localStorage.removeItem("platFormFlag");
+      // 请求验证码次数
       localStorage.setItem("platFormFlag",oldIndex.toString());
     } else {
       localStorage.setItem("platFormFlag", this.platFormFlag.toString());
@@ -97,6 +98,7 @@ export class SigninPage implements OnInit{
     var that = this;
     this.count = 59;
     this.codeSended = true;
+    // 验证码计时
     var timer = setInterval(() => {
       that.count--;
       if (that.count < 0) {
@@ -123,8 +125,8 @@ export class SigninPage implements OnInit{
     loading.present()
     this.customerService.phoneLogin(that.token, value.phone, value.code, that.sessionId, this.vistorId, 0).subscribe(res => {
       loading.dismiss();
-      console.log(res);
-      if(res && res.errorCode ==0 ) {
+      console.log("手机验证码登录返回数据" + res);
+      if(res && res.errorCode == 0 ) {
         this.errorTip = "";
         let customer = res.data;
         localStorage.setItem("customerId", customer.id);
@@ -134,6 +136,7 @@ export class SigninPage implements OnInit{
         if(res.data.recordId) {
           localStorage.setItem("recordId", res.data.recorId);
         }
+        // 关闭当前页面
         that.viewCtrl.dismiss();
       }else if(res.errorCode == 90938) {
         let phoneUnUsedAlert = that.alerCtrl.create({
@@ -157,7 +160,7 @@ export class SigninPage implements OnInit{
           }
         ]
         });
-        phoneUnUsedAlert.present();
+        phoneUnUsedAlert.present();//
       } else if (res.errorCode == 90933) {
         this.errTip = "验证码错误，请重新输入！"
       }else if(res.errorCode == 90946) {

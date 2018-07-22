@@ -32,15 +32,31 @@ export class CustomerServiceProvider {
    * @memberof CustomerServiceProvider
    */
   phoneLogin(token, phone, code, sessionId, vistorId, isNeedCode) {
-    let headers = new Headers({'Count-Type': 'application-x-www-form-urlencoded'});
+    let headers = new Headers({'Count-Type': 'application/x-www-form-urlencoded'});
     let options = new RequestOptions({headers: headers});
     return this.http.post(AppConfig.apiUrl() + "/customer/login/phoneLogin?access_token=" + token + '&phone=' + phone + '&code=' + code + '&sessionId=' + sessionId + '&vistorId=' + vistorId + '&isNeedCode=' + isNeedCode, options)
           .map(res => res.json());
   }
 
+  /**
+   * 登录成功后再次查询顾客基本信息
+   * @pitcher
+   * 
+   * @param {any} customerId 
+   * @param {any} token 
+   * @returns 
+   * @memberof CustomerServiceProvider
+   */
   getUserCenterHttp(customerId, token) {
-    return this.http.get(AppConfig.apiUrl() + "/customer/detail" + customerId + "?access_token=" + token)
+    return this.http.get(AppConfig.apiUrl() + "/customer/detail/" + customerId + "?access_token=" + token)
                     .map(res =>res.json());
+  }
+
+  activityLuckyDraw(token, customerId) {//抽奖
+    let  headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.get(AppConfig.apiUrl() + "/activityLuckyDraw/findSurplusTimes?access_token=" + token + "&customerId=" + customerId, options)
+                    .map(res => res.json())
   }
 
 }
