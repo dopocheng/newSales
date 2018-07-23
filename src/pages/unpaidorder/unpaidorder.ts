@@ -14,13 +14,13 @@ import { UnpaidOrderServiceProvider } from '../../providers/unpaid-order-service
 export class UnpaidorderPage implements OnInit{
   
   tabBarElement: any;//获取 tabbar 节点 
-  readStatus: number;
+  readStatus: number;//
   customerToken: string;//客户 token
-  messageId: any;
-  pet: string = "待支付订单";
-  unPaidOrder: any;
-  customerId: any;
-  paidOrder: any[];
+  messageId: any;//
+  pet: string = "";//手机平台类型
+  unPaidOrder: any;//未支付订单
+  customerId: any;//客户Id
+  paidOrder: any[];//已支付订单
   token: string;
 
   constructor(
@@ -46,7 +46,7 @@ export class UnpaidorderPage implements OnInit{
     }
 
     var that = this;
-    if(that.readStatus == 0) {
+    if(that.readStatus == 0) {//?
       that.messageservice.readMessage(that.customerToken, that.messageId).subscribe(res => {
 
       },error => {
@@ -63,11 +63,10 @@ export class UnpaidorderPage implements OnInit{
     let loading = this.loadingCtrl.create({
     });
     loading.present();
-
+    var that = this;
     that.token = localStorage.getItem("token");
     that.customerToken = localStorage.getItem("customerToken");
     that.customerId = localStorage.getItem("customerId");
-    var that = this;
     setTimeout(function () {
       if (that.pet === "待支付订单") {
         //获取未支付订单数据

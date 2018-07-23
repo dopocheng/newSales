@@ -32,9 +32,9 @@ export class UserCenterPage implements OnInit {
   customer: any;//客户
   recordId: any;//记录
   activityDrawTime:number = 0;//幸运时间
-  createdCode1: string;//生成号
-  createdCode: string;
-  tabBarElement: any;
+  createdCode1: string;//预览图
+  createdCode: string;//二维码号
+  tabBarElement: any;//获取 tabBar 
   
   constructor(
     public navCtrl: NavController, 
@@ -68,7 +68,7 @@ export class UserCenterPage implements OnInit {
       //用户基本信息
       that.getUserCenterHttp();
     }
-
+    // 二级及页面去掉了tabaBar 返回后要让 tab 显示出来
     this.tabBarElement = document.querySelector('.tabbar');
     if(this.tabBarElement) {
       this.tabBarElement.style.display = 'flex';
@@ -134,16 +134,18 @@ export class UserCenterPage implements OnInit {
     }
   }
 
+  // 生成二维码  
   generateQRCode(curUserInfo) {
     var thisURL = AppConfig.SERVER_URL + "/mobile/?customerId=" +curUserInfo.id;
     this.createdCode = thisURL;
   }
+
+  // 生成二维码预览图
   generateQRCode1(ticket) {
-    // 生成二维码
     var thisURL = AppConfig.SERVER_URL + "/mobile/?ticketId=" + ticket.id;
     this.createdCode = thisURL;
   }
-  //二维码图片
+  //展示预览二维码图片
   previewQRCode() {
     var qrCodeComponent = document.getElementById("showQRCodeImage");
     var QRCodeImg = qrCodeComponent.getElementsByTagName("img");
@@ -157,7 +159,7 @@ export class UserCenterPage implements OnInit {
 
   // 未支付订单
   gotoUnpaidorderPage() {
-    this.navCtrl.push(UnpaidorderPage, {
+    this.navCtrl.push(UnpaidorderPage, {//判断订购单状态
       orderType: "待支付订单"
     });
   }

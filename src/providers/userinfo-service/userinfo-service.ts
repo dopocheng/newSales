@@ -17,8 +17,18 @@ export class UserinfoServiceProvider {
             ) {
     console.log('Hello UserinfoServiceProvider Provider');
   }
-
-  getBrowerInfo(code, state, userAgent, descn, token) {
+/**
+ * 获取浏览信息
+ * 
+ * @param {any} code 
+ * @param {any} state 
+ * @param {any} userAgent 
+ * @param {any} descn 
+ * @param {any} token 
+ * @returns 
+ * @memberof UserinfoServiceProvider
+ */
+getBrowerInfo(code, state, userAgent, descn, token) {
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded'});
     let options = new RequestOptions({headers: headers});
     return this.http.post(AppConfig.apiUrl() + "/wx/getSessionForWeb?access_token=" + token + "&code" + code + "&state=" + state, options)

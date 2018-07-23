@@ -10,9 +10,17 @@ export class MessageServiceProvider {
               public http: Http,
   ) {
     console.log('Hello MessageServiceProvider Provider');
-  }
 
-  readMessage( token, messageId) {
+  }
+/**
+ * messageId 查询信息
+ * 
+ * @param {any} token 
+ * @param {any} messageId 
+ * @returns 
+ * @memberof MessageServiceProvider
+ */
+readMessage( token, messageId) {
     let headers  = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     let options = new RequestOptions({headers: headers});
     return this.http.post(AppConfig.apiUrl() + "/message/readMessage/" + messageId + "?access_token=" + token, options)
