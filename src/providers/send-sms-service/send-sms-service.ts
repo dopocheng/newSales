@@ -1,7 +1,7 @@
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { AppConfig } from '../../app/app.config'
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
+// import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SendSmsServiceProvider {

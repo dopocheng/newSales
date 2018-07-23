@@ -1,0 +1,309 @@
+
+.orderPayBg{
+    background: #f1f1f9;
+  }
+  
+  .orderTabBox{
+    height: 50px;
+    line-height: 50px;
+    background: #f1f1f1;
+    position: fixed;
+    left: 0;
+    top:44px;
+    width: 100%;
+  }
+  .orderTabBox .segment-button{
+    height: 50px;
+    line-height: 50px;
+    border-color: #f1f1f1;
+    color: #000000;
+    font-size: 16px;
+  }
+  .orderTabBox .segment-button i{
+    height: 30px;
+    width: 30px;
+    display:inline-block;
+    vertical-align: -10px;
+    margin-right: 5px;
+  }
+  .orderTabBox .segment-button:first-of-type i{
+    background: url("../assets/images/userCenter/wIcon01.png") no-repeat center top;
+    background-size: 30px;
+  }
+  .orderTabBox .segment-button:last-of-type i{
+    background: url("../assets/images/userCenter/wIcon02.png") no-repeat center top;
+    background-size: 30px;
+  }
+  .orderTabBox .segment-button.segment-activated{
+    background: #f1f1f1;
+    color: #b81c25;
+    border-color: #f1f1f1;
+  }
+  .orderTabBox .segment-button.segment-activated:first-of-type i{
+    background: url("../assets/images/userCenter/wIcon01-1.png") no-repeat center top;
+    background-size: 30px;
+  }
+  .orderTabBox .segment-button.segment-activated:last-of-type i{
+    background: url("../assets/images/userCenter/wIcon02-1.png") no-repeat center top;
+    background-size: 30px;
+  }
+  
+  .waitPayListBox{
+    .item{
+      padding-left: 15px;
+      border-bottom: none;
+      margin-bottom: 10px;
+      .item-inner{
+        border-bottom: none;
+      }
+    }
+    .item:last-child{
+      border-bottom: none;
+    }
+    h3{
+      font-size: 10px;
+      color: #999;
+      padding-bottom:5px;
+    }
+  }
+  
+  .orderCommentBox .item-ios.item-block{
+    padding: 10px;
+    border-top:1px solid #e8e8e8;
+  }
+  .list.list-ios > .item-block:first-child{
+    border-top:none;
+  }
+  .orderCommentBox .list-ios .item-block .item-inner{
+    border-bottom:none;
+  }
+  .orderCommentBox .list-ios > .item-block:last-child{
+    border-bottom: none;
+  }
+  .orderCommentBox .item-ios.item-block .item-inner{
+    padding-right: 0;
+  }
+  .topNumBox{
+    width: 100%;
+    overflow: hidden;
+    line-height: 30px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #f1f1f7;
+  }
+  .topNumBox p{
+    float: left;
+    color: #73779a;
+    font-size: 12px;
+  }
+  .topNumBox div{
+    //float: right;
+    color: #f72b44;
+    font-size: 14px;
+    text-align: right;
+    line-height: 20px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  .productMainBox{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .proImgBox{
+    width:32%;
+    float:left;
+    overflow:hidden;
+    text-align:center;
+    height: 90px;
+  }
+  .proImgBox img{
+    width: 100%;
+  }
+  .proMiddleBox{
+    width:38%;
+    float:left;
+    white-space: initial;
+  }
+  .proMiddleBox h6{
+    margin-left:10px;
+    font-size:14px;
+    margin-bottom:8px;
+    line-height:20px;
+    text-align:left;
+    color:black;
+    font-weight: normal;
+  }
+  .proMiddleBox p{
+    color:#73779a;
+    font-size:12px;
+    margin-bottom:5px;
+    margin-left:10px;
+    line-height:16px;
+  }
+  .proRightBox{
+    width:30%;
+    float:left;
+    text-align:right;
+    line-height:20px;
+  }
+  .activityPrice{
+    margin-top:5px;
+    font-size:14px;
+    color:#000000;
+  
+  }
+  .origPrice{
+    font-size:12px;
+    color:#b6b6c5;
+    text-decoration:line-through;
+  }
+  .subscriptionPrice{
+    margin-bottom:5px;
+    font-size:14px;
+    color:#f72b44;
+  }
+  .cardPrice{
+    color:#888;
+    font-size:14px;
+  }
+  .operationBox{
+    width: 100%;
+    overflow: hidden;
+  }
+  .inventory{
+    float:left;
+    color:#353535;
+    font-size: 14px;
+    line-height: 34px;
+  }
+  .operationBox{
+    .twoBtnBox{
+      float: right;
+      .button-small-ios{
+        padding: 0 8px;
+      }
+      .button{
+        border-color: #73779a;
+        color: #515467;
+        padding: 0 8px;
+      }
+      .thisButton{
+        border-color: #f72b44;
+        color: #f72b44;
+      }
+    }
+  }
+  
+  
+  
+  
+  .twoBtnBox .button-outline-ios{
+    border-color: #73779a;
+    color: #515467;
+  }
+  .twoBtnBox .button-outline-ios.activated{
+    border-color: #b81c25;
+    color: #b81c25;
+    background: #ffffff;
+  }
+  .shopTel{
+    //float: right;
+    color: #737799;
+    text-decoration: underline;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  .shopTel a{
+    color: #2665ff;
+  }
+  
+  .shopTel1{
+    //float: right;
+    color: #737799;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: right;
+  }
+  .shopTel1 a{
+    color: #2665ff;
+  }
+  
+  
+  .waitPayListBox{
+    margin: 0;
+    .bottomLineBox{
+      .item{
+        padding-left: 0px;
+        color: #515366;
+        font-size: 14px;
+      }
+    }
+  }
+  
+  
+  .bottomLineBox{
+    width: 100%;
+    overflow: hidden;
+    padding-top: 8px;
+    border-top: 1px solid #f1f1f7;
+    margin-top: 8px;
+    .leftTextBox{
+      float: left;
+      color: #515366;
+      font-size: 14px;
+    }
+    .rightButtonBox{
+      float: right;
+      color: #f72b44;
+      text-decoration: underline;
+      font-size: 14px;
+      .rightArrow{
+        position: initial;
+        color: #f72b44;
+        vertical-align: -2px;
+        margin-left: 5px;
+      }
+    }
+  }
+  
+  //无交易订单信息
+  .unpaiOrderEmptyBox{
+    width: 100%;
+    height: 100%;
+  }
+  .unpaiOrderEmpty{
+    width: 100%;
+    text-align: center;
+    height: 170px;
+    margin-top: 120px;
+  }
+  .unpaiOrderEmpty i{
+    display: block;
+    width: 100px;
+    height:100px;
+    background: url("../assets/images/userCenter/noder.svg") no-repeat center;
+    background-size: 100%;
+    margin: 20px auto;
+  }
+  .unpaiOrderEmpty span{
+    color: #73779a;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .payOrder i{
+    background: url("../assets/images/userCenter/orderover.svg") no-repeat center;
+    background-size: 100%;
+  }
+  
+  @media screen and (max-width: 320px){
+    .proImgBox{
+      height: 70px;
+    }
+    .inventory{
+      float: inherit;
+      text-align: right;
+    }
+  }
+  

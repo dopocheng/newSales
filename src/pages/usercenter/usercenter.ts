@@ -6,6 +6,9 @@ import { SigninPage } from '../login/signin/signin';
 import { CustomerServiceProvider } from '../../providers/customer-service/customer-service';
 import { UserinfoServiceProvider } from '../../providers/userinfo-service/userinfo-service';
 import { ErrorUtils } from '../../utils/error.utils';
+import { PreviewpagePage } from '../microhome/previewpage/previewpage';
+import { UnpaidorderPage } from '../unpaidorder/unpaidorder';
+import { THIS_EXPR } from '../../../node_modules/@angular/compiler/src/output/output_ast';
 
 /**
  * Generated class for the UsercenterPage page.
@@ -29,6 +32,9 @@ export class UserCenterPage implements OnInit {
   customer: any;//客户
   recordId: any;//记录
   activityDrawTime:number = 0;//幸运时间
+  createdCode1: string;//生成号
+  createdCode: string;
+  tabBarElement: any;
   
   constructor(
     public navCtrl: NavController, 
@@ -37,6 +43,7 @@ export class UserCenterPage implements OnInit {
     public userinfoService: UserinfoServiceProvider,
     public alerCtrl: AlertController
   ) {
+
   }
   
   ngOnInit(): void {
@@ -60,6 +67,11 @@ export class UserCenterPage implements OnInit {
     if(this.customerId) {
       //用户基本信息
       that.getUserCenterHttp();
+    }
+
+    this.tabBarElement = document.querySelector('.tabbar');
+    if(this.tabBarElement) {
+      this.tabBarElement.style.display = 'flex';
     }
   }
 
@@ -103,7 +115,8 @@ export class UserCenterPage implements OnInit {
           if(that.customer.recordId) {//recordId为空？
             that.recordId = that.customer.recordId;
           }
-          // that.generateQRCode(res.data);
+          //生成二维码 (userId)
+          that.generateQRCode(res.data);
         }
       },error => {
         console.log("getUserCenterHttp")
@@ -121,4 +134,31 @@ export class UserCenterPage implements OnInit {
     }
   }
 
+  generateQRCode(curUserInfo) {
+    var thisURL = AppConfig.SERVER_URL + "/mobile/?customerId=" +curUserInfo.id;
+    this.createdCode = thisURL;
+  }
+  generateQRCode1(ticket) {
+    // 生成二维码
+    var thisURL = AppConfig.SERVER_URL + "/mobile/?ticketId=" + ticket.id;
+    this.createdCode = thisURL;
+  }
+  //二维码图片
+  previewQRCode() {
+    var qrCodeComponent = document.getElementById("showQRCodeImage");
+    var QRCodeImg = qrCodeComponent.getElementsByTagName("img");
+    var imgSrc = QRCodeImg[0].src;
+    // 生成预览图
+    this.navCtrl.push(PreviewpagePage, {
+      imgResource: [{ url: imgSrc}],
+      curIndex: 0
+    })
+  }
+
+  // 未支付订单
+  gotoUnpaidorderPage() {
+    this.navCtrl.push(UnpaidorderPage, {
+      orderType: "待支付订单"
+    });
+  }
 }

@@ -16,11 +16,12 @@
         <div class="userTxBox">
           <img img-lazy-load [src]="avatarUrl" />
         </div>
-        <div class="QRCodeContainer">
-
+        <!-- 生成二维码 -->
+        <div class="QRCodeContainer" (click)="previewQRCode()">
+          <ngx-qrcode id="showQRCodeImage" [qrc-value]="createdCode"></ngx-qrcode>
+          <ngx-qrcode id="showQRCodeImage1" style="display:none" [qrc-value]="createdCodel"></ngx-qrcode>
         </div>
            
-
         <h6 *ngIf="customer">{{customer.name}}</h6>
         <div *ngIf="customer && customerNumber != '-0000001'" class="VipNum">VIP编号:{{customer.customerNumber}}</div>
 
@@ -42,7 +43,7 @@
     <div clas="myOrderMainBox">
       <div class="userOrderBox">
         <ul>
-          <li><i class="uIcon01"></i><p>待支付</p><div class="unpaiNum">1</div>
+          <li (click)="gotoUnpaidorderPage()"><i class="uIcon01"></i><p>待支付</p><div class="unpaiNum">1</div>
           <li><i class="uIcon02"></i><p>已支付</p>
           <li><i class="uIcon03"></i><p>待晒单</p>
           </li>

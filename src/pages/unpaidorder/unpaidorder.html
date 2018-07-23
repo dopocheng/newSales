@@ -1,0 +1,123 @@
+<!-- 未支付订单 -->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{pet}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content fullscreen class="orderPayBg">
+  <div *ngIf="pet==='待支付订单'">
+    <ion-list class="waitPayListBox">
+      <ion-item>
+        <div>
+          <h3>创建日期:</h3>
+          <div>
+            <p>订单编号:</p>
+            <div>
+              待付款
+            </div>
+          </div>
+          <!-- 预约金 -->
+          <div>
+            <div>
+              <img />proImgBox
+              <img />jpg
+            </div>
+            <div>
+              <h6></h6>
+              <p></p>
+            </div>
+            <div>
+              <div>￥</div>
+              <div>￥</div>
+              <div>预约金</div>
+            </div>
+          </div>
+
+          <div>
+            <div>实付</div>
+            <div>
+              <button>取消订单</button>
+              <button>继续支付</button>
+            </div>
+          </div>
+
+          <div>
+            门店电话:
+            <a>110</a>
+          </div>
+          <div>
+            门店暂无电话:
+            <a>119</a>
+          </div>
+        </div>
+        <!-- 门票订单 -->
+        <div *ngIf="oneOrder.type == 3">
+          <div class="topNumBox">
+            <p>订单编号：{{oneOrder.reservationNumber}}</p>
+            <div>待付款</div>
+            <p>订单创建日期:{{oneOrder.reservationCreateTime}}</p>
+          </div>
+          <div class="productMainBox">
+            <!--<div class="proImgBox"><img src="{{imagePath +'/image/'+ oneOrder.combo.comboTitleImage}}"/></div>-->
+            <div class="proMiddleBox">
+              <h6>{{oneOrder.ticket.name}}</h6>
+
+            </div>
+            <div class="proRightBox">
+
+            </div>
+          </div>
+          <div class="operationBox">
+            <div class="inventory">实付:{{oneOrder.price}}元</div>
+            <div class="twoBtnBox">
+              <button ion-button outline small (click)="cancleOrder(oneOrder.reservationId)">取消订单</button>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 换购订单 -->
+        <div *ngIf="oneOrder.type == 5">
+          <div class="topNumBox">
+            <p>订单编号：{{oneOrder.reservationNumber}}</p>
+            <div>待付款</div>
+            <p>订单创建日期:{{oneOrder.reservationCreateTime}}</p>
+          </div>
+          <div class="productMainBox">
+            <div class="proImgBox">
+              <img *ngIf="oneOrder.combo.comboTitleImage" src="{{imagePath +'/image/'+ oneOrder.combo.comboTitleImage}}" />
+              <img *ngIf="!oneOrder.combo.comboTitleImage" src="./assets/images/default.jpg">
+            </div>
+            <div class="proMiddleBox">
+              <h6>{{oneOrder.combo.comboName}}</h6>
+
+            </div>
+            <div class="proRightBox">
+              <!--<div class="activityPrice">￥{{oneOrder.ticket.name}}</div>-->
+              <!--<div class="origPrice">￥{{oneOrder.activityDTO.activityOriginalPrice}}</div>-->
+            </div>
+          </div>
+          <div class="operationBox">
+            <div class="inventory">实付:{{oneOrder.price}}元</div>
+            <div class="twoBtnBox">
+              <button ion-button outline small (click)="cancleOrder(oneOrder.reservationId)">取消订单</button>
+              <button class="thisButton" ion-button outline small (click)="gotoUnpaidorderdetail(oneOrder)">继续支付
+              </button>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <!--暂无支付订单信息-->
+    <div class="unpaiOrderEmptyBox" *ngIf="unPaidOrder && unPaidOrder.length <= 0">
+      <div class="unpaiOrderEmpty">
+        <i></i>
+        <span>无交易订单信息</span>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>
