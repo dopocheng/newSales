@@ -6,16 +6,11 @@ import { SigninPage } from '../login/signin/signin';
 import { CustomerServiceProvider } from '../../providers/customer-service/customer-service';
 import { UserinfoServiceProvider } from '../../providers/userinfo-service/userinfo-service';
 import { ErrorUtils } from '../../utils/error.utils';
-import { PreviewpagePage } from '../microhome/previewpage/previewpage';
-import { UnpaidorderPage } from '../unpaidorder/unpaidorder';
-import { THIS_EXPR } from '../../../node_modules/@angular/compiler/src/output/output_ast';
 
-/**
- * Generated class for the UsercenterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { EditmessagePage } from '../../pages/usercenter/editmessage/editmessage'
+import { PreviewpagePage } from '../microhome/previewpage/previewpage';
+import { UnpaidorderPage } from '../usercenter/unpaidorder/unpaidorder';
+
 
 @IonicPage()
 @Component({
@@ -92,13 +87,13 @@ export class UserCenterPage implements OnInit {
         console.info(res)
         if(res && res.errorCode == 0 ) {
           var data = res.data;
-          that.customer = data;
-
+          that.customer = data; 
+          //未获得用户名
           if(!data.name || data.name == '' || data.name == 'null' || data,name == 'undefined') {
             var isWeChat = localStorage.getItem("isWeChat");
-            console.log("isWeChat:"+isWeChat)
+            console.log("isWeChat:" + isWeChat)
             if(isWeChat != '1') {
-              var userAgent = navigator.userAgent;//
+              var userAgent = navigator.userAgent;//环境
               var descn = "个人中心，昵称不存在，当前 customerId =" + that.customerId;
               localStorage.setItem("isWeCat", '1');
               that.userinfoService.getBrowerInfo('', '', userAgent, descn, that.token).subscribe(res => {
@@ -108,7 +103,7 @@ export class UserCenterPage implements OnInit {
           }
           localStorage.setItem("customerName", that.customer.name);
           if(that.customer.avatarCustomized && that.customer.avatarUrl) {
-            that.avatarUrl = AppConfig.IMAGE_PATH_TWO + "/avatar/" + that.customer.avataraurl;
+            that.avatarUrl = AppConfig.IMAGE_PATH_TWO + "/avatar/" + that.customer.avatarUrl;
           }else if(!that.customer.avatarCustomized && that.customer.avatarUrl) {
             that.avatarUrl = that.customer.avatarUrl;
           }
@@ -134,10 +129,16 @@ export class UserCenterPage implements OnInit {
     }
   }
 
-  // 生成二维码  
-  generateQRCode(curUserInfo) {
-    var thisURL = AppConfig.SERVER_URL + "/mobile/?customerId=" +curUserInfo.id;
-    this.createdCode = thisURL;
+  //修改个人信息
+  gotoEditmessage() {
+    this.navCtrl.push(EditmessagePage);
+  }
+
+  // 未支付订单
+  gotoUnpaidorderPage() {
+    this.navCtrl.push(UnpaidorderPage, {//判断订购单状态
+      orderType: "待支付订单"
+    });
   }
 
   // 生成二维码预览图
@@ -157,10 +158,12 @@ export class UserCenterPage implements OnInit {
     })
   }
 
-  // 未支付订单
-  gotoUnpaidorderPage() {
-    this.navCtrl.push(UnpaidorderPage, {//判断订购单状态
-      orderType: "待支付订单"
-    });
+  // 生成二维码  
+  generateQRCode(curUserInfo) {
+    var thisURL = AppConfig.SERVER_URL + "/mobile/?customerId=" +curUserInfo.id;
+    this.createdCode = thisURL;
   }
+
+
+  
 }
