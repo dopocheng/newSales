@@ -7,10 +7,13 @@ import { GalleryModal } from 'ionic-gallery-modal'
   selector: 'page-previewpage',
   templateUrl: 'previewpage.html',
 })
+
+//二维码预览展示页面
 export class PreviewpagePage {
-  modals: any;
-  imgResource: any;
-  curIndex: any;
+
+  modals: any;//modal 框
+  imgResource: any;//小二维码
+  curIndex: any;//当前用户 id
   isDismissed: boolean = false;
   isPoped: boolean =false;
 
@@ -29,9 +32,10 @@ export class PreviewpagePage {
       photos: this.imgResource,
       initialSlide: this.curIndex,
     });
+    //
     this.modals.onDidDismiss(data => {
       this.isDismissed = true;
-      if(this.isPoped === false) {
+      if(this.isPoped === false) { 
         this.navCtrl.pop();
       }
     });

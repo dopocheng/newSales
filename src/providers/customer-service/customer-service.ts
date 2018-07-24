@@ -18,6 +18,27 @@ export class CustomerServiceProvider {
             ) {
     console.log('Hello CustomerServiceProvider Provider');
   }
+/**
+ * 微信环境注册
+ * @Pitcher
+ *
+ * @param {*} token
+ * @param {*} phon
+ * @param {*} sessionId
+ * @param {*} nickName
+ * @param {*} siteId
+ * @param {*} code
+ * @param {*} avatarUrl
+ * @param {*} isNeedCode
+ * @returns
+ * @memberof CustomerServiceProvider
+ */
+signup(token, phone, sessionId, nickName, siteId, code, avatarUrl, isNeedCode) {
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(AppConfig.apiUrl() +"/customer/signup?access_token=" + token + '&phoe=' + phone + '&sessionId=' + sessionId  + '&nickName=' + nickName + '&siteId='+ siteId + '&code=' + code + '&avatarUrl=' + avatarUrl + '&isNeedCode=' + isNeedCode, options)
+                    .map(res => res.json());
+  }
 
   /**
    * 手机验证码登录

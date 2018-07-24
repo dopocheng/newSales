@@ -1,0 +1,23 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+// 非微信用户注册页面
+
+@IonicPage()
+@Component({
+  selector: 'page-signup',
+  templateUrl: 'signup.html',
+})
+export class SignupPage {
+
+  constructor(
+              public navCtrl: NavController, 
+              public navParams: NavParams
+  ) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SignupPage');
+  }
+
+}

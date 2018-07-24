@@ -63,7 +63,7 @@ export class UserCenterPage implements OnInit {
     var that = this;
     that.customerId = localStorage.getItem("customerId");
     this.siteId = localStorage.getItem("siteId");
-    console.error("登陆后的 customerId ：" + this.customerId);
+    console.error("登陆后的 customerId ：" + that.customerId);
     if(this.customerId) {
       //用户基本信息
       that.getUserCenterHttp();

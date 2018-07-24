@@ -13,7 +13,8 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SigninPage } from '../pages/login/signin/signin';
 import { PreviewpagePage } from '../pages/microhome/previewpage/previewpage';
-import { UnpaidorderPage } from '../pages/unpaidorder/unpaidorder'
+import { UnpaidorderPage } from '../pages/unpaidorder/unpaidorder';
+
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -33,10 +34,11 @@ import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/un
     ContactPage,
     HomePage,
     TabsPage,
-    UserCenterPage,
+    UserCenterPage,//用户中心
     SigninPage,
     PreviewpagePage,
-    UnpaidorderPage
+    UnpaidorderPage,
+    
   ],
   imports: [  //第三方 module
     BrowserModule,
@@ -55,7 +57,8 @@ import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/un
     UserCenterPage,
     SigninPage,
     PreviewpagePage,
-    UnpaidorderPage
+    UnpaidorderPage,
+    
   ],
   providers: [//新建 provider
     StatusBar,

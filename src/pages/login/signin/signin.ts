@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController, ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { SignupPage } from '../../../pages/login/signup/signup'
+
 import { CustomerServiceProvider } from '../../../providers/customer-service/customer-service'
 import { SendSmsServiceProvider } from './../../../providers/send-sms-service/send-sms-service';
 import { ErrorUtils } from '../../../utils/error.utils';
@@ -20,8 +22,8 @@ import { ErrorUtils } from '../../../utils/error.utils';
   templateUrl: 'signin.html',
 })
 export class SigninPage implements OnInit{
-  errTip: string;//验证码发送状态
-  errorTip: string;//用户操作状态
+  errTip: string = "";//验证码发送状态
+  errorTip: string = "";//用户操作状态
   token: string;//后台随机生成
   codeSended: boolean;//验证码发送
   count: number;//倒计时
@@ -35,7 +37,10 @@ export class SigninPage implements OnInit{
   code: any;//验证码
   sessionId: string;
   vistorId: string;
-  isWeixin:boolean = false;
+  isWeixin:boolean = false;//是否微信环境
+  nickNameStr: any;
+  siteId: string;
+  fileName: string ="";
   
   constructor(
               public navCtrl: NavController, 
@@ -61,13 +66,16 @@ export class SigninPage implements OnInit{
     this.password = this.accountLoginForm.controls['password'];
     this.phone = this.phoneLoginForm.controls['phone'];
     this.code = this.phoneLoginForm.controls['code'];
+   
   }
   
-  ngOnInit(): void {
+  ngOnInit(){
     //获取本地 token
     this.token = localStorage.getItem("token");
     this.sessionId = localStorage.getItem("sessionId");
-    this.vistorId = localStorage.getItem("vistorId");
+    this.vistorId = localStorage.getItem("vistorId");//游客 Id
+    this.nickNameStr = localStorage.getItem("nickNameStr")//获取昵称
+    this.siteId = localStorage.getItem("siteId")
   }
 
   ionViewWillEnter() {
@@ -134,7 +142,7 @@ export class SigninPage implements OnInit{
         localStorage.setItem("phone", res.data.phone);
         localStorage.setItem("name", res.data.name);
         if(res.data.recordId) {
-          localStorage.setItem("recordId", res.data.recorId);
+          localStorage.setItem("recordId", res.data.recordId);
         }
         // 关闭当前页面
         that.viewCtrl.dismiss();
@@ -145,11 +153,17 @@ export class SigninPage implements OnInit{
           buttons: [{
             text: '成为会员',
             handler: () => {
+              //判断是否微信环境，是微信调 signup 方法；不是则要跳转到微信
               if(!this.isWeixin) {
+                console.error("跳转注册")
                 this.viewCtrl.dismiss();
-                // this.navCtrl.push(SignupPage);
+                this.navCtrl.push(SignupPage, {
+                  isFromWx:false,
+                  code:value.code,
+                  phoneNum:value.phone
+                });
               }else{
-                // this.signup(value);
+                this.signup(value);
               }
             }
           },{
@@ -173,13 +187,74 @@ export class SigninPage implements OnInit{
     });
   }
 
- //清除验证码
+//清除验证码
   clearErrorTip(){
     this.errTip = "";
   }
 //清除用户
   clearErrorTip1(){
     this.errorTip = "";
+  }
+//微信注册入口
+  signup(value) {
+    let loading = this.loadingCtrl.create({});
+    loading.present();
+    var tempNickName = encodeURIComponent(this.nickNameStr);
+    this.customerService.signup(this.token, value.phone, this.sessionId, tempNickName, this.siteId, value.code, this.fileName,1).subscribe(res => {
+      console.error("微信注册成功");
+      console.info(res);
+      if(res && res.errorCode == 0) {
+        setTimeout(() => {
+          var that = this;
+          this.customerService.phoneLogin(that.token, value.phone, value.code, that.sessionId, this.vistorId, 1).subscribe(res => {
+            loading.dismiss();
+            //cosole.log("注册成功后直接登录")
+            if(res && res.errorCode == 0) {
+              let customer = res.daat;
+              localStorage.setItem("customerId", customer.id);
+              localStorage.setItem("customerToken", customer.token);//token,登录之后返回customer权限的token
+              localStorage.setItem("phone", res.data.phone);
+              localStorage.setItem("name", res.data.name);
+              if(res.data.recordId) {
+                localStorage.setItem("recordId", res.data.recordId);
+              }
+              that.viewCtrl.dismiss();
+            }else if(res.errorCode == 90942) {
+              let tokenErrAlert = that.alerCtrl.create({
+                title: '提示',
+                message: '登录失败，获取令牌出错！',
+                buttons: ['好的']
+              });
+              tokenErrAlert.present();
+            }
+
+          },error => {
+            ErrorUtils.handleError(error,that.alerCtrl, that.navCtrl, SigninPage);
+          });
+        },2000);
+      } else if(res.errorCode == 9035) {
+        let nameErrAlert = this.alerCtrl.create({
+          title: '提示',
+          message: '用户名已被注册',
+          buttons: ['好的']
+        });
+        nameErrAlert.present();
+      }else if(res.errorCode == 90933) {
+        let nameErrAlert = this.alerCtrl.create({
+          title: '提示',
+          message: '验证码错误请重新输入！',
+          buttons: ['好的']
+        });
+        nameErrAlert.present();
+      }else if(res.errorCode == 9034){
+        let nameErrAlert = this.alerCtrl.create({
+          title: '提示',
+          message: '尊敬的家瓦老用户，您的账号已存在于我们的系统中，您可以直接使用验证码进行登录。或者使用忘记密码功能重置您的密码',
+          buttons: ['好的']
+        });
+        nameErrAlert.present();
+      }
+    }, error => {ErrorUtils.handleError(error,this.alerCtrl, this.navCtrl, SigninPage);});
   }
 
 
