@@ -1,3 +1,117 @@
 page-editmessage {
-
-}
+    .editMessagePage{
+      background: #f0f1f9;
+    }
+    .editHeaderBox{
+      width: 100%;
+      background: #FFFFFF;
+      padding: 35px 0;
+      text-align: center;
+      margin-bottom: 10px;
+      h1{
+        width: 90px;
+        height: 90px;
+        border-radius: 100%;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+      p{
+        color: #737799;
+        font-size: 1.5rem;
+        text-align: center;
+        width: 100%;
+        margin-top: 12px;
+      }
+    }
+  
+    .listOne button{
+      border-bottom: 1px solid #f2f2f2;
+    }
+    .listOne .item-block .item-inner{
+      border-bottom: none;
+    }
+    .listOne .item-block:nth-child(1){
+      border-top:none;
+    }
+    .listOne .item-block:last-child{
+      border-bottom: none;
+    }
+    .listOne{
+      ion-label{
+        position: relative;
+        color: #000;
+        font-size: 1.4rem;
+        label{
+          position: absolute;
+          right:0;
+          color: #737799;
+          font-size: 1.4rem;
+          top:0px;
+        }
+      }
+    }
+  
+  
+  
+  
+  
+  
+      .creamComment{
+        width: 90px;
+        height: 90px;
+        text-align: center;
+        color: #8b8b99;
+        position: relative;
+        margin: 0 auto;
+        //.icon{
+        //  font-size:5.8rem;
+        //  color: #cdcde2;
+        //}
+        p{
+          width: 90px;
+          height: 90px;
+          border-radius: 100%;
+          overflow: hidden;
+          margin: 0 auto;
+          img{
+            width: 90px;
+            height: 90px;
+            border-radius: 100%;
+          }
+        }
+        .item-select{
+          position: absolute;
+          z-index: 10;
+          height: 100%;
+          top:0;
+          left: 0;
+          opacity: 0;
+        }
+      }
+  
+    .buttomBut{
+      position: fixed;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      .obtain{
+        background:#f72b44;
+        width:100%;
+        position:absolute;
+        bottom:0;
+        left:0;
+        height: 44px;
+        line-height:44px;
+        text-align:center;
+        color:#fff;
+        font-size:14px;
+        margin: 0;
+        border-radius: inherit;
+        .icon{
+          display: none;
+        }
+      }
+    }
+  
+  }
+  

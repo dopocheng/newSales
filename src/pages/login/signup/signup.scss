@@ -1,3 +1,438 @@
 page-signup {
-
-}
+    #bottomLoginObtain{
+      float:right;
+      width: 100%;
+      line-height: 36px;
+      height: 36px;
+      text-align: center;
+      border-radius: 6px;
+      font-size: 16px;
+      background: #f72b44;
+      color: #FFFFFF;
+      box-shadow: 1.176px 1.618px 4px 0 rgba(0, 0, 0, 0.08);
+    }
+    .loginBg{
+      background: $newbgColor;
+    }
+  
+    .text-input::-moz-placeholder {
+      color: $newinputColor;
+    }
+  
+    .text-input:-ms-input-placeholder {
+      color:$newinputColor;
+    }
+  
+    .text-input::-webkit-input-placeholder {
+      color: $newinputColor;
+    }
+  
+    page-signin .loginPage input[placeholder], page-signin .loginPage [placeholder], page-signin .loginPage *[placeholder]{
+      color: #fff;
+    }
+    *{
+      padding: 0;
+      margin: 0;
+    }
+  
+  
+    .editHeaderBox{
+      width: 100%;
+      background: #FFFFFF;
+      padding: 20px 0 0;
+  
+      text-align: center;
+      margin-bottom: -20px;
+      h1{
+        width: 90px;
+        height: 90px;
+        border-radius: 100%;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+      p{
+        color: #737799;
+        font-size: 1.5rem;
+        text-align: center;
+        width: 100%;
+        margin-top: 12px;
+      }
+    }
+    .creamComment{
+      width: 80px;
+      height: 80px;
+      text-align: center;
+      color: #8b8b99;
+      position: relative;
+      margin: 0 auto;
+      //.icon{
+      //  font-size:5.8rem;
+      //  color: #cdcde2;
+      //}
+      p{
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        overflow: hidden;
+        margin: 0 auto;
+        img{
+          width: 80px;
+          height: 80px;
+          border-radius: 100%;
+          background: #e2e2e2;
+        }
+      }
+      .item-select{
+        position: absolute;
+        z-index: 10;
+        height: 100%;
+        top:0;
+        left: 0;
+        opacity: 0;
+      }
+    }
+  
+  
+  
+  
+    .signupBox{
+      .text-input{
+        color: #515366;
+        font-size: 16px;
+      }
+      h2{
+        padding:28px 15px 0;
+        color: #000000;
+        font-size: 22px;
+      }
+      .inputCode{
+        position: relative;
+        .yzmBut{
+          position: absolute;
+          bottom:13px;
+          right:5px;
+          width: auto;
+          margin: 0;
+          line-height: 27px;
+          height: 27px;
+          color: #f72b44;
+          border-radius: 50px;
+          background: #fff;
+          box-shadow: none;
+        }
+        .text-input-clear-icon{
+          right:0;
+          color: #fff;
+        }
+      }
+  
+      .prompt{
+        &.promptM{
+          padding-top: 20px;
+          position: relative;
+        }
+        .item{
+          padding-left: 0;
+          border-radius: 0;
+          box-shadow: none;
+          background: none;
+          &.item-inner{
+            border-bottom: none;
+          }
+        }
+        &.validation{
+          margin-top: 30px;
+        }
+  
+  
+      }
+  
+  
+      .bottomLogin{
+        display: block;
+        padding:0px 15px;
+        button{
+          display: inline-block;
+          text-align: left;
+          border:none;
+          background: none;
+          font-size: 18px;
+          float:left;
+          color: #fff;
+          line-height: 36px;
+          //margin: 32px 0 0;
+          &.obtain{
+            float:right;
+            width: 100%;
+            line-height: 36px;
+            height: 36px;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 16px;
+            background: #f72b44;
+            color: #FFFFFF;
+            box-shadow: 1.176px 1.618px 4px 0 rgba(0, 0, 0, 0.08);
+          }
+        }
+  
+      }
+  
+      .signupText{
+        margin: 28rem 0 0;
+        overflow: hidden;
+        display: block;
+        button{
+          font-size: 15px;
+          color: #fff;
+          background: none;
+          padding: 0 15px;
+          line-height: 26px;
+          i{
+            color: #ffb5b5;
+            font-style:normal;
+          }
+        }
+      }
+  
+  
+      .errorTip{
+        margin: 8px 16px;
+        color: #f72b44;
+        font-size: 12px;
+        ion-icon{
+          font-size: 16px;
+          font-weight: bold;
+          margin: 0 6px 0 0px;
+          vertical-align: -1px;
+        }
+      }
+  
+  
+      .wxAccountBox{
+        margin: 30px 0;
+        .wxMessages{
+          text-align: center;
+          padding: 12px 0;
+          margin: 0 16px;
+          background: #F2F2F7;
+          .wxtx{
+            width: 28px;
+            height: 28px;
+            border-radius: 100%;
+            vertical-align: middle;
+          }
+          span{
+            color: #515366;
+            font-size: 16px;
+            margin: 0 6px 0 10px;
+            vertical-align: middle;
+          }
+          .sex{
+            width: 10px;
+            vertical-align: middle;
+          }
+  
+        }
+      }
+  
+  
+    .agreementMainBox{
+      margin: 30px 16px 10px;
+      ion-checkbox{
+        vertical-align: middle;
+      }
+      ion-label{
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 6px;
+      }
+      .input-wrapper{
+        font-size: 14px;
+      }
+  
+      .item.item-md{
+        .checkbox-md{
+          margin: 9px 16px 9px 4px
+        }
+      }
+      .agreementText{
+        color: #737799;
+        text-decoration: underline;
+      }
+      .checkbox-md{
+        .checkbox-checked{
+          border-color:#515366;
+          background-color:#515366;
+        }
+      }
+    }
+  
+  
+  
+  
+      .text-input-md{
+        margin: 0;
+      }
+      .text-input-md{
+        padding-right: 0;
+      }
+  
+      .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
+        border: none;
+        box-shadow:none;
+      }
+      .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
+        border: none;
+        box-shadow:none;
+      }
+      .input-ios[clearInput] .text-input{
+        padding: 0 10px;
+        margin: 0;
+      }
+  
+      .item-md.item-input.item-input-has-focus .item-inner,
+      .item-md.item-input.input-has-focus .item-inner {
+        border: none;
+        box-shadow:none;
+      }
+  
+      .list-md .item-input.item-input-has-focus:last-child,
+      .list-md .item-input.input-has-focus:last-child {
+        border: none;
+        box-shadow:none;
+      }
+  
+  
+      .inputBox{
+        padding: 0 15px;
+      }
+      //.agreement{
+      //  padding: 40px 0 10px;
+      //  overflow: hidden;
+      //  .checkbox{
+      //    float: left;
+      //    .checkbox-icon{
+      //      border-radius:4px;
+      //    }
+      //  }
+      //  button{
+      //    color: #515467;
+      //    margin-left: 10px;
+      //    float: left;
+      //    font-size: 14px;
+      //    background: none;
+      //    border:none;
+      //    line-height: 21px;
+      //  }
+      //}
+  
+      .default{
+        position: absolute;
+        left: 2px;
+        bottom: 1px;
+        width: 100%;
+        height: 1px;
+        background: $newborderColor;
+        &.success{
+          background: #00cb18;
+        }
+        &.error{
+          background: #E5E6EF;
+        }
+      }
+  
+      //new style
+      .userInput{
+        padding-bottom: 50px;
+        p{
+          line-height: 17px;
+          font-size: 14px;
+          color: #fff;
+          padding-top: 10px;
+        }
+      }
+  
+      .twoBut{
+        padding: 50px 15px 0;
+        .obtain{
+          background: #fff;
+          border-radius: 22px;
+          line-height: 44px;
+          width: 100%;
+          font-size: 16px;
+          color: $newfontColor;
+        }
+      }
+  
+      .passwordText{
+        line-height: 17px;
+        font-size: 14px;
+        color: #fff;
+        padding-top: 10px;
+      }
+  
+  
+  
+    }
+  
+    .item-ios.item-block .item-inner{
+      border-bottom: none;
+    }
+  
+    .item-md.item-block .item-inner{
+      border-bottom: none;
+    }
+  
+    .signInput{
+      padding: 0 15px;
+      .prompt{
+        margin-top: 10px;
+        position: relative;
+        .default{
+          position: absolute;
+          left: 2px;
+          bottom: 0;
+          width: 100%;
+          height: 1px;
+          border-radius: 0;
+          background: $newborderColor;
+          &.success{
+            background: #00cb18;
+          }
+          &.error{
+            background: #f6acb5;
+          }
+        }
+      }
+    }
+  
+    .input-md[clearInput] .text-input{
+      padding-left: 10px;
+    }
+  
+    .backPrepage{
+      width: 68px;
+      height: 68px;
+      background-color: #ffffff;
+      box-shadow: 0 8px 16px 0 rgba(143, 166, 222, 0.3);
+      border: solid 1px #f1f5ff;
+      text-align: center;
+      border-radius: 100%;
+      //position: fixed;
+      //right:15px;
+      //bottom:66px;
+      color: #2665ff;
+      font-size: 1rem;
+      float:right;
+      margin:100px 20px 0 0;
+      i{
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/images/microhome/back.svg) no-repeat center;
+        background-size: 100%;
+        margin: 10px auto 2px;
+      }
+    }
+  }
+  

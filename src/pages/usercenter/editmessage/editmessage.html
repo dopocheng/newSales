@@ -1,18 +1,36 @@
-<!--
-  Generated template for the EditmessagePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>editmessage</ion-title>
+    <ion-title>修改个人信息</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content class="editMessagePade">
+  <div class="editHeaderBox">
+    <div class="creamCommemt">
+      <p>
+        <img id="avatar" src="" />图片</p>
+    </div>
+    <p>点击头像即可修改</p>
+  </div>
 
-<ion-content padding>
+  <ion-list class="listOne">
+    <button ion-item>昵称
+      <label>nickName</label>
+      <ion-icon class="rightArrow" name="ios-arrow-forward"></ion-icon>
+    </button>
+    <button ion-item>
+      修改登录密码
+      <ion-icon class="rightArrow" name="ios-arrow-forward"></ion-icon>
+    </button>
+    <button ion-item>
+      <span>已绑定手机号</span>
+      <ion-icon class="rightArrow" name="ios-arrow-forward"></ion-icon>
+    </button>
+  </ion-list>
 
+  <ion-fab right bottom left bottom class="buttomBut">
+    <button class="obtain">退出登录</button>
+  </ion-fab>
 </ion-content>

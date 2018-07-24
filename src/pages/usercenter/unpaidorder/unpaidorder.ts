@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 
-import { MessageServiceProvider } from '../../providers/message-service/message-service';
-import { ErrorUtils } from '../../utils/error.utils';
-import { SigninPage } from '../login/signin/signin';
-import { UnpaidOrderServiceProvider } from '../../providers/unpaid-order-service/unpaid-order-service';
+import { MessageServiceProvider } from '../../../providers/message-service/message-service';
+import { ErrorUtils } from  "../../../utils/error.utils";
+import { SigninPage } from '../../login/signin/signin';
+import { UnpaidOrderServiceProvider } from '../../../providers/unpaid-order-service/unpaid-order-service';
 
 @IonicPage()
 @Component({
