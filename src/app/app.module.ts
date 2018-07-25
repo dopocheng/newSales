@@ -16,6 +16,8 @@ import { PreviewpagePage } from '../pages/microhome/previewpage/previewpage';
 import { UnpaidorderPage } from '../pages/usercenter/unpaidorder/unpaidorder';
 import { EditmessagePage } from '../pages/usercenter/editmessage/editmessage';
 import { SignupPage } from '../pages/login/signup/signup';
+import { EditusernamePage } from '../pages/usercenter/editmessage/editusername/editusername';
+import { EdituserpasswordPage } from '../pages/usercenter/editmessage/edituserpassword/edituserpassword';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -40,7 +42,9 @@ import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/un
     PreviewpagePage,
     UnpaidorderPage,
     EditmessagePage,
-    SignupPage
+    SignupPage,
+    EditusernamePage,
+    EdituserpasswordPage
   ],
   imports: [  //第三方 module
     BrowserModule,
@@ -61,7 +65,9 @@ import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/un
     PreviewpagePage,
     UnpaidorderPage,
     EditmessagePage,
-    SignupPage
+    SignupPage,
+    EditusernamePage,
+    EdituserpasswordPage
   ],
   providers: [//新建 provider
     StatusBar,

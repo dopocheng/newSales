@@ -10,17 +10,20 @@
   <div class="editHeaderBox">
     <div class="creamCommemt">
       <p>
-        <img id="avatar" src="" />图片</p>
+        <img id="avatar" src="{{avatar}}" (click)="chooseImage()">
+      </p>
     </div>
     <p>点击头像即可修改</p>
   </div>
 
-  <ion-list class="listOne">
-    <button ion-item>昵称
-      <label>nickName</label>
+  <!-- 修改昵称 -->
+  <ion-list class="listOne" *ngIf="loginName">
+    <button ion-item (click)="gotoEditusername()">昵称
+      <label>{{nickName}}</label>
       <ion-icon class="rightArrow" name="ios-arrow-forward"></ion-icon>
     </button>
-    <button ion-item>
+    <!-- 修改密码 -->
+    <button ion-item (click)="editPassword()">
       修改登录密码
       <ion-icon class="rightArrow" name="ios-arrow-forward"></ion-icon>
     </button>

@@ -1,14 +1,7 @@
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { AppConfig } from '../../app/app.config';
-// import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the CustomerServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class CustomerServiceProvider {
 
@@ -33,7 +26,7 @@ export class CustomerServiceProvider {
  * @returns
  * @memberof CustomerServiceProvider
  */
-signup(token, phone, sessionId, nickName, siteId, code, avatarUrl, isNeedCode) {
+signup(token, phone, sessionId, nickName, siteId, code, avatarUrl, isNeedCode) {//用户注册
     let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     let options = new RequestOptions({headers: headers});
     return this.http.post(AppConfig.apiUrl() +"/customer/signup?access_token=" + token + '&phoe=' + phone + '&sessionId=' + sessionId  + '&nickName=' + nickName + '&siteId='+ siteId + '&code=' + code + '&avatarUrl=' + avatarUrl + '&isNeedCode=' + isNeedCode, options)
@@ -52,7 +45,7 @@ signup(token, phone, sessionId, nickName, siteId, code, avatarUrl, isNeedCode) {
    * @returns 
    * @memberof CustomerServiceProvider
    */
-  phoneLogin(token, phone, code, sessionId, vistorId, isNeedCode) {
+  phoneLogin(token, phone, code, sessionId, vistorId, isNeedCode) {//手机验证码登录
     let headers = new Headers({'Count-Type': 'application/x-www-form-urlencoded'});
     let options = new RequestOptions({headers: headers});
     return this.http.post(AppConfig.apiUrl() + "/customer/login/phoneLogin?access_token=" + token + '&phone=' + phone + '&code=' + code + '&sessionId=' + sessionId + '&vistorId=' + vistorId + '&isNeedCode=' + isNeedCode, options)
@@ -68,7 +61,7 @@ signup(token, phone, sessionId, nickName, siteId, code, avatarUrl, isNeedCode) {
    * @returns 
    * @memberof CustomerServiceProvider
    */
-  getUserCenterHttp(customerId, token) {
+  getUserCenterHttp(customerId, token) {//用户基本信息
     return this.http.get(AppConfig.apiUrl() + "/customer/detail/" + customerId + "?access_token=" + token)
                     .map(res =>res.json());
   }
@@ -80,4 +73,38 @@ signup(token, phone, sessionId, nickName, siteId, code, avatarUrl, isNeedCode) {
                     .map(res => res.json())
   }
 
+  /**
+   * 获取用户头像
+   * @Picther 
+   *
+   * @param {*} token
+   * @param {*} customerId
+   * @param {*} serverIds
+   * @returns
+   * @memberof CustomerServiceProvider
+   */
+  uploadAvatar(token,customerId,serverIds){//获取用户头像
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(AppConfig.apiUrl() + "/customer/uploadAvatar?access_token="+token+"&customerId="+customerId+"&serverIds="+serverIds, options)
+      .map(res => res.json());
+  }
+
+  /**
+   * 修改 nickName
+   * @Picther
+   *
+   * @param {*} token
+   * @param {*} customerId
+   * @param {*} nickName
+   * @returns
+   * @memberof CustomerServiceProvider
+   */
+  updateNickName(token, customerId, nickName) {//修改昵称
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(AppConfig.apiUrl() + "/customer/updateNickName?access_token=" + token + '&customerId=' + customerId + '&nickName=' + nickName, options)
+                    .map(res => res.json());
+  }
+ 
 }

@@ -114,7 +114,7 @@ export class UserCenterPage implements OnInit {
           that.generateQRCode(res.data);
         }
       },error => {
-        console.log("getUserCenterHttp")
+        console.error("getUserCenterHttp")
         
         ErrorUtils.handleError(error, this.alerCtrl, this.navCtrl, SigninPage)
       });

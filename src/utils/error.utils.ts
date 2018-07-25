@@ -1,6 +1,13 @@
 export class ErrorUtils {
-
-    public static show:boolean=false;
+/**
+ * 捕捉错误
+ * @Picther
+ *
+ * @static
+ * @type {boolean}
+ * @memberof ErrorUtils
+ */
+public static show:boolean=false;
   
     public  static handleError(error,alertCtrl,navCtrl,siginPage) {
       console.log(error);
