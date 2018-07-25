@@ -106,5 +106,19 @@ signup(token, phone, sessionId, nickName, siteId, code, avatarUrl, isNeedCode) {
     return this.http.post(AppConfig.apiUrl() + "/customer/updateNickName?access_token=" + token + '&customerId=' + customerId + '&nickName=' + nickName, options)
                     .map(res => res.json());
   }
+
+  forgetCheckPhone(token, phone, code) {
+    let headers = new Headers({'content-Type': 'splication/x-www-form-uelencoded'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(AppConfig.apiUrl() + "/customer/forget/checkPhone?access_token=" + token + '&phone=' + phone + '&code=' +code,options)
+                    .map(res => res.json());
+  }
+
+  updatePwd(token, phone, newPassword) {
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(AppConfig.apiUrl() + "/customer/forget/updatePwd?access_token=" + token + '&phone=' + phone + '&newPassword=' + newPassword, options)
+      .map(res => res.json());
+  }
  
 }
