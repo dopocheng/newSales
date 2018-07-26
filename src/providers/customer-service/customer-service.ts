@@ -107,6 +107,16 @@ signup(token, phone, sessionId, nickName, siteId, code, avatarUrl, isNeedCode) {
                     .map(res => res.json());
   }
 
+  /**
+   * 找回密码请求
+   * @Pitcher
+   *
+   * @param {*} token
+   * @param {*} phone
+   * @param {*} code
+   * @returns
+   * @memberof CustomerServiceProvider
+   */
   forgetCheckPhone(token, phone, code) {
     let headers = new Headers({'content-Type': 'splication/x-www-form-uelencoded'});
     let options = new RequestOptions({headers: headers});
@@ -114,11 +124,39 @@ signup(token, phone, sessionId, nickName, siteId, code, avatarUrl, isNeedCode) {
                     .map(res => res.json());
   }
 
+  /**
+   * 修改密码请求
+   *@Pitcher
+   *
+   * @param {*} token
+   * @param {*} phone
+   * @param {*} newPassword
+   * @returns
+   * @memberof CustomerServiceProvider
+   */
   updatePwd(token, phone, newPassword) {
     let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     let options = new RequestOptions({headers: headers});
     return this.http.post(AppConfig.apiUrl() + "/customer/forget/updatePwd?access_token=" + token + '&phone=' + phone + '&newPassword=' + newPassword, options)
       .map(res => res.json());
+  }
+
+  /**
+   * 绑定手机请求
+   * @Pitcher
+   *
+   * @param {*} token
+   * @param {*} customerId
+   * @param {*} phone
+   * @param {*} code
+   * @returns
+   * @memberof CustomerServiceProvider
+   */
+  bindPhone(token, customerId, phone, code) {
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(AppConfig.apiUrl() + "/cudtomer/bindPhone?access_token=" + token + '&customerId=' + customerId + '&phone=' + phone + '&code=' + code,options)
+                    .map(res => res.json());
   }
  
 }

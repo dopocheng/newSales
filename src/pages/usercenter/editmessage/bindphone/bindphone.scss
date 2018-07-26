@@ -1,0 +1,124 @@
+page-bindphone {
+  .loginBg {
+    background: #fff;
+  }
+  .inputBox {
+    padding: 0 15px 0;
+    input {
+      background: #fff;
+      line-height: 45px;
+      margin-top: 20px;
+      border-radius: 4px;
+      border: none;
+      display: block;
+      padding: 0 10px;
+      width: 100%;
+      color: #73779a;
+      font-size: 16px;
+    }
+    .inputCode {
+      position: relative;
+      margin-top: 20px;
+      background: none;
+      height: 45px;
+      border-radius: 0;
+      margin-bottom: 10px;
+      box-shadow: none;
+      border-bottom: 1px solid #e2e2e2;
+      input {
+        margin-top: 0;
+        width: 70%;
+        background: none;
+        line-height: 30px;
+        box-shadow: none;
+        display: inline-block;
+      }
+      .button {
+        position: absolute;
+        bottom: 13px;
+        right: 5px;
+        width: auto;
+        margin: 0;
+        line-height: 27px;
+        height: 27px;
+        color: #fff;
+        border-radius: 50px;
+        background: #73779a;
+        box-shadow: none;
+      }
+      .text-input-ios {
+        margin: -5px 0 0;
+      }
+    }
+    .text-input-clear-icon {
+      margin: 28px 0 0;
+      height: 30px;
+      line-height: 30px;
+      box-shadow: none;
+    }
+    .prompt {
+      position: relative;
+      .default {
+        position: absolute;
+        left: 0;
+        bottom: 1px;
+        width: 100%;
+        height: 1px;
+        background: #e2e2e2;
+        &.success {
+          background: #00cb18;
+        }
+        &.error {
+          background: #f72b44;
+        }
+      }
+      &.validation {
+        .default {
+          bottom: 8px;
+        }
+      }
+      .item {
+        background: none;
+        padding: 0;
+        .item-inner {
+          padding: 0;
+        }
+      }
+    }
+  }
+  .item-ios.item-block .item-inner {
+    border: none;
+  }
+  .item-md.item-block .item-inner,
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border: none;
+    box-shadow: none;
+  }
+  .item-md.item-input.item-input-has-focus .item-inner,
+  .item-md.item-input.input-has-focus .item-inner {
+    border: none;
+    box-shadow: none;
+  }
+  .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+  .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border: none;
+    box-shadow: none;
+  }
+  .text-input-md {
+    margin: 0;
+  }
+  .buttonBox {
+    padding: 40px 15px 0;
+    .obtain {
+      width: 100%;
+      height: 44px;
+      line-height: 44px;
+      text-align: center;
+      border-radius: 22px;
+      font-size: 18px;
+      background: #f72b44;
+      color: #fff;
+      box-shadow: 1.176px 1.618px 4px 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+}

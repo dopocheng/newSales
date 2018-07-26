@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { SigninPage } from '../../login/signin/signin';
 import { EditusernamePage } from '../editmessage/editusername/editusername';
 import { EdituserpasswordPage }from '../editmessage/edituserpassword/edituserpassword';
+import { BindphonePage } from '../editmessage/bindphone/bindphone'
 
 import { AppConfig } from '../../../app/app.config';
 import { CustomerServiceProvider } from '../../../providers/customer-service/customer-service';
@@ -21,14 +22,16 @@ console.info(wx)
 })
 export class EditmessagePage {
 
-  token: string;
-  customerId: string;
-  customerToken: string;
-  loginName: any;
+  token: string;//微信 token
+  customerId: string;//登录后的 Id
+  customerToken: string;//登录后的权限 Id
+  loginName: any;//
   avatar: string = "../../assets/images/defaultAv.png";
   imagePath = AppConfig.IMAGE_PATH;
   nickName: any;//昵称
   phone: any;//手机号
+  tabBarElement: any;//导航栏
+  headerBarElement: any;
 
   constructor(
               public navCtrl: NavController,
@@ -44,8 +47,22 @@ export class EditmessagePage {
     console.log('ionViewDidLoad EditmessagePage');
   }
 
+  ionViewWillEnter() { //隐藏底部 tabBar
+    this.tabBarElement = document.querySelector('.tabbar');
+
+    if(this.tabBarElement){
+      this.tabBarElement.style.display = 'none';
+    }
+  }
+
   ionViewDidEnter() {
     this.getUserCenterHttp();
+  }
+
+  //绑定手机号(删掉了次功能，放在注册了))
+  bindPhone() {
+    console.log("bindPhone")
+    this.navCtrl.push(BindphonePage);
   }
 
   //修改 password
@@ -128,10 +145,10 @@ export class EditmessagePage {
         if(res && res.errorCode == 0 ) {
           that.phone = res.data.phone;
           that.nickName = res.data.name;
-          that.avatar = res.data.avatarUrl;
-          that.loginName = res.data.loginName;
+          that.avatar = res.data.avatarUrl;//头像
+          that.loginName = res.data.loginName;//登录名 cutomer_1532413707186
           
-          if(res.data.avatarCustomized && res.data.avatarUrl) {
+          if(res.data.avatarCustomized && res.data.avatarUrl) {//true && 10.png
             that.avatar = AppConfig.IMAGE_PATH_TWO + "/avatar/" + res.data.avatarUrl;
           }else if(!res.data.avatarCustomized && res.data.avatarUrl) {
             that.avatar = res.data.avatarUrl;

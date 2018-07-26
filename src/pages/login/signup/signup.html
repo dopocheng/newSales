@@ -1,4 +1,9 @@
+<!--
+  Generated template for the SignupPage page.
 
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
 
     <ion-navbar>
@@ -11,100 +16,146 @@
   <ion-content>
     <div class="signupBox">
       <!--第一步-->
-      <div class="firstStep" *ngIf="status ==0 ">
+      <div class="firstStep" *ngIf="status == 0">
         <h2>完善信息</h2>
         <form [formGroup]="sendCodeForm" (ngSubmit)="checkCode(sendCodeForm.value)" novalidate>
           <!--手机号验证登录-->
           <div class="inputBox">
+  
+            <!--头像-->
+            <div class="editHeaderBox" *ngIf="!isWeixin">
+              <div class="creamComment">
+                <p><img id="avatar" src="{{defaultImg}}"  (click)="hChooseImage()"></p>
+              </div>
+              <p (click)="hChooseImage()">点击选择头像</p>
+              <ul *ngIf="showImage" style="overflow: hidden;width: 270px;position: absolute;background: #fff;z-index: 1000;left: 50%;margin-left: -135px;">
+                <li (click)="selectImg(oneitem)" style="float:left;width:40px;height:40px;margin-right: 5px;margin-bottom:5px;cursor:pointer;" *ngFor="let oneitem of headImageList">
+                  <img src="{{'./assets/images/userCenter/headImage/'+ oneitem + '.png'}}"/>
+                </li>
+              </ul>
+            </div>
+  
             <!--昵称-->
-            <div class="inputCode" >
+            <div class="inputCode" *ngIf="!isWeixin">
               <div class="prompt validation">
                 <ion-item>
-                  <ion-input type="text" placeholder="请输入昵称" value="" 
+                  <ion-input type="text" placeholder="请输入昵称" value="" [formControl]="nickName"
                              clearInput=true></ion-input>
                 </ion-item>
                 <div class="default"></div>
               </div>
+  
             </div>
   
-            <div class="inputCode">
+            <div class="inputCode" *ngIf="isFromWx">
               <div class="prompt validation">
                 <ion-item>
-                  <ion-input type="tel" placeholder="请输入手机号" value="" 
+                  <ion-input type="tel" placeholder="请输入手机号" value="" [formControl]="phoneNum"
                              clearInput=true></ion-input>
                 </ion-item>
-                <!-- <div class="default" [class.error]="!phoneNum.valid && phoneNum.touched"
-                     [class.success]="phoneNum.valid"></div> -->
+                <div class="default" [class.error]="!phoneNum.valid && phoneNum.touched"
+                     [class.success]="phoneNum.valid"></div>
               </div>
+              <!--<button class="yzmBut" ion-button *ngIf="!codeSended" [disabled]="!phoneNum.valid" type="button"-->
+                      <!--(click)="sendCode(sendCodeForm.value)">-->
+                <!--获取验证码-->
+              <!--</button>-->
+              <!--<button ion-button class="yzmBut" *ngIf="codeSended" disabled="true">({{count}})已发送</button>-->
             </div>
-            <div class="inputCode">
+            <div class="inputCode" *ngIf="isFromWx">
               <div class="prompt promptM">
                 <ion-item>
-                  <ion-input type="number"  placeholder="请输入验证码" value="" 
+                  <ion-input type="number" (ionChange)="clearErrorTip()" placeholder="请输入验证码" value="" [formControl]="validatorCode"
                              clearInput=true></ion-input>
                 </ion-item>
-                <!-- <div class="default" [class.error]="!validatorCode.valid && validatorCode.touched"
-                     [class.success]="validatorCode.valid"></div> -->
+                <div class="default" [class.error]="!validatorCode.valid && validatorCode.touched"
+                     [class.success]="validatorCode.valid"></div>
               </div>
-              <button class="yzmBut" ion-button type="button">
+              <button class="yzmBut" ion-button *ngIf="!codeSended" [disabled]="!phoneNum.valid" type="button"
+                      (click)="sendCode(sendCodeForm.value)">
                 获取验证码
               </button>
-              <button ion-button class="yzmBut" disabled="true">(count)已发送</button>
+              <button ion-button class="yzmBut" *ngIf="codeSended" disabled="true">({{count}})已发送</button>
             </div>
           </div>
   
           <!--错误信息提示-->
-          <div class="errorTip"><ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>errorTip</div>
+          <div class="errorTip" *ngIf="errorTip"><ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>{{errorTip}}</div>
+  
+          <!--<div class="wxAccountBox" *ngIf = "isWeixin">
+            <ion-item>
+              <ion-label>
+                本账号将与当前微信号关联
+              </ion-label>
+            </ion-item>
+            &lt;!&ndash;微信信息&ndash;&gt;
+            <div class="wxMessages">
+              <img class="wxtx" [src]="avatarUrl"/>
+              <span>{{nickNameStr}}</span>
+              &lt;!&ndash;性别：男&ndash;&gt;
+              <img class="sex" [src]="gender"/>
+              &lt;!&ndash;性别：女&ndash;&gt;
+              &lt;!&ndash;<img class="sex" src="/assets/images/login/woman.png"/>&ndash;&gt;
+            </div>
+          </div>-->
+  
           <div class="agreementMainBox">
             <ion-checkbox color="dark" checked="true"></ion-checkbox>
-            <ion-label>我已阅读并同意<span class="agreementText">《家瓦用户协议》</span></ion-label>
+            <ion-label>我已阅读并同意<span (click)="openProtocolModal()" class="agreementText">《家瓦用户协议》</span></ion-label>
           </div>
   
-          <div class="bottomLogin">
-            <button ion-button class="obtain" type="submit" >下一步</button>
+          <div class="bottomLogin" *ngIf="isFromWx">
+            <button ion-button class="obtain" type="submit" [disabled]="!sendCodeForm.valid">下一步</button>
+          </div>
+          <div class="bottomLogin" *ngIf="!isFromWx">
+            <button ion-button class="obtain" type="button" (click)="nextStep()" [disabled]="!fileName">下一步</button>
           </div>
         </form>
-
-        <div style="margin:0 auto;margin-top:100px;width:37%;">已有账号，<span style="color:blue;text-decoration: underline;" >去登录</span>
-        </div>
+        <!--<div class="signupText">-->
+          <!--<button (click)="openProtocolModal()"><i>注册即同意</i>《用户协议》</button>-->
+        <!--</div>-->
+        <div style="margin:0 auto;margin-top:100px;width:37%;">已有账号，<span style="color:blue;text-decoration: underline;" (click)="gotoSigninPage()">去登录</span></div>
       </div>
   
       <!--第三步-->
-      <div class="firstStep" >
+      <div class="firstStep" *ngIf="status == 1">
         <h2>设置密码</h2>
-        <form  novalidate>
+        <form [formGroup]="updatePwdForm" (ngSubmit)="updatePwd(updatePwdForm.value)" novalidate>
           <div class="signInput siginITwo">
             <div class="prompt proMargin">
-              <ion-item>
-                账号：sendCodeForm.value.phoneNum
+              <ion-item *ngIf="isFromWx">
+                账号：{{sendCodeForm.value.phoneNum}}
+              </ion-item>
+              <ion-item *ngIf="!isFromWx">
+                账号：{{siginPhone}}
               </ion-item>
             </div>
             <div class="prompt proMargin">
               <ion-item>
-                <ion-input type="password" value="" placeholder="请输入8位数及以上密码" 
-                            clearInput=true></ion-input>
+                <ion-input type="password" value="" placeholder="请输入8位数及以上密码" formControlName="password"
+                           (ionChange)="clearRePassword()" clearInput=true></ion-input>
               </ion-item>
-              <!-- <div class="default" [class.error]="!password.valid && password.touched"
-                   [class.success]="password.valid"></div> -->
+              <div class="default" [class.error]="!password.valid && password.touched"
+                   [class.success]="password.valid"></div>
             </div>
             <div class="prompt">
               <ion-item>
-                <ion-input type="password" value="" placeholder="请确认密码" 
+                <ion-input type="password" value="" placeholder="请确认密码" formControlName="re_password"
                            clearInput=true></ion-input>
               </ion-item>
-              <!-- <div class="default" [class.error]="!re_password.valid && re_password.touched"
-                   [class.success]="re_password.valid"></div> -->
+              <div class="default" [class.error]="!re_password.valid && re_password.touched"
+                   [class.success]="re_password.valid"></div>
             </div>
-            <!-- <div class="errorTip" style="margin: 8px 16px;color: #f72b44;font-size: 12px;" *ngIf="codeErrorTip"><ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>{{codeErrorTip}}</div>
+            <div class="errorTip" style="margin: 8px 16px;color: #f72b44;font-size: 12px;" *ngIf="codeErrorTip"><ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>{{codeErrorTip}}</div>
             <div class="errorTip" *ngIf="!password.valid && password.touched"><ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>密码格式错误</div>
-            <div class="errorTip" *ngIf="!re_password.valid && re_password.touched"><ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>输入密码不匹配</div> -->
+            <div class="errorTip" *ngIf="!re_password.valid && re_password.touched"><ion-icon ios="ios-alert" md="ios-alert-outline"></ion-icon>输入密码不匹配</div>
           </div>
           <div class="bottomLogin" style="margin-top: 20px;">
-            <button ion-button class="obtain" type="submit" >完成注册</button>
+            <button ion-button class="obtain" type="submit" [disabled]="!updatePwdForm.valid">完成注册</button>
           </div>
         </form>
         <div class="bottomLogin">
-          <button ion-button style="margin-top: 15px;" id="bottomLoginObtain" class="obtain" >跳过设置密码</button>
+          <button ion-button style="margin-top: 15px;" id="bottomLoginObtain" class="obtain" (click)="signup(sendCodeForm.value)" >跳过设置密码</button>
         </div>
         <div class="errorTip" *ngIf="signupSuccess" style="font-size: 18px;text-align: center;">恭喜您，注册成功！为保证账号安全您可在个人中心设置密码！</div>
       </div>

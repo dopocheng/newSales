@@ -27,8 +27,10 @@
       修改登录密码
       <ion-icon class="rightArrow" name="ios-arrow-forward"></ion-icon>
     </button>
+    <!-- <button ion-item (click)="bindPhone()">在注册时候绑定 -->
+        <!-- <span >绑定手机号</span> -->
     <button ion-item>
-      <span>已绑定手机号</span>
+      <span *ngIf="phone">已绑定手机号 {{phone}}</span>
       <ion-icon class="rightArrow" name="ios-arrow-forward"></ion-icon>
     </button>
   </ion-list>

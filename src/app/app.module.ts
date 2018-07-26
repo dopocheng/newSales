@@ -18,6 +18,7 @@ import { EditmessagePage } from '../pages/usercenter/editmessage/editmessage';
 import { SignupPage } from '../pages/login/signup/signup';
 import { EditusernamePage } from '../pages/usercenter/editmessage/editusername/editusername';
 import { EdituserpasswordPage } from '../pages/usercenter/editmessage/edituserpassword/edituserpassword';
+import { BindphonePage }  from '../pages/usercenter/editmessage/bindphone/bindphone'
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -44,7 +45,8 @@ import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/un
     EditmessagePage,
     SignupPage,
     EditusernamePage,
-    EdituserpasswordPage
+    EdituserpasswordPage,
+    BindphonePage
   ],
   imports: [  //第三方 module
     BrowserModule,
@@ -67,7 +69,8 @@ import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/un
     EditmessagePage,
     SignupPage,
     EditusernamePage,
-    EdituserpasswordPage
+    EdituserpasswordPage,
+    BindphonePage
   ],
   providers: [//新建 provider
     StatusBar,

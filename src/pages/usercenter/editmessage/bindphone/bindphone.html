@@ -1,0 +1,46 @@
+
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>绑定手机号</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content class="loginBg">
+    <div>
+      <form [formGroup]="bindPhoneForm" (ngSubmit)="bindPhone(bindPhoneForm.value)" novalidate>
+        <!--手机号验证登录-->
+        <div class="inputBox">
+          <div class="inputCode">
+  
+            <div class="prompt validation">
+              <ion-item [class.error]="!phone.valid && phone.touched">
+                <ion-input type="text" value="" placeholder="请输入手机号" formControlName="phone"></ion-input>
+              </ion-item>
+              <div class="default" [class.error]="!phone.valid && phone.touched"
+                   [class.success]="phone.valid"></div>
+            </div>
+            <button ion-button *ngIf="!codeSended" [disabled]="!phone.valid" type="button"
+                    (click)="sendCode(bindPhoneForm.value)">
+              获取验证码
+            </button>
+            <button ion-button *ngIf="codeSended" disabled="true">({{count}})已发送</button>
+  
+          </div>
+          <div class="prompt">
+            <ion-item [class.error]="!code.valid && code.touched">
+              <ion-input type="text" value="" placeholder="请输入短信验证码" formControlName="code" clearInput=true></ion-input>
+            </ion-item>
+            <div class="default" [class.error]="!code.valid && code.touched"
+                 [class.success]="code.valid"></div>
+          </div>
+  
+        </div>
+        <div class="buttonBox"><button ion-button class="obtain" type="submit" [disabled]="!bindPhoneForm.valid">确认绑定</button></div>
+  
+      </form>
+    </div>
+  </ion-content>
+  
