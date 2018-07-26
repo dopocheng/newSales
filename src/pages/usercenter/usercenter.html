@@ -26,7 +26,7 @@
         <div *ngIf="customer && customerNumber != '-0000001'" class="VipNum">VIP编号:{{customer.customerNumber}}</div>
 
         <div class="notificationNumber">
-          <ion-icon name="notifications"></ion-icon>
+          <ion-icon name="notifications" *ngIf="customer" (click)="gotoNoticelist()"></ion-icon>
           <ion-badge item-end></ion-badge>
         </div>
     </div>

@@ -1,0 +1,48 @@
+<!-- 通知列表页面 -->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>通知列表</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="integralIntroduce">
+    <ul>
+      <li (click)="gotoMessages(0)">
+        <div class="iconBox serviceIcon" >
+          <i></i>
+          <ion-badge item-end *ngIf="count0 && count0 > 0">{{count0}}</ion-badge>
+          </div>
+        <div class="messageTextBox">
+          <h2>系统消息</h2>
+          <p>这里可以查看推广、邀请等消息</p>
+        </div>
+      </li>
+
+      <li (click)="gotoMessages(1)">
+        <div class="iconBox proIcon" >
+          <i></i>
+          <ion-badge item-end   *ngIf="count1 && count1 > 0">{{count1}}</ion-badge>
+        </div>
+        <div class="messageTextBox">
+          <h2>个人尊享特价</h2>
+          <p>这里可以查看平台为你推荐的各种优势商品等消息</p>
+        </div>
+      </li>
+      <li (click)="gotoMessages(2)">
+        <div class="iconBox assetsIcon" >
+          <i></i>
+          <ion-badge item-end   *ngIf="count2 && count2 > 0">{{count2}}</ion-badge>
+        </div>
+        <div class="messageTextBox">
+          <h2>我的资产</h2>
+          <p>这里可以查看积分、等级、卡券等变动消息</p>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</ion-content>

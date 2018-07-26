@@ -10,6 +10,7 @@ import { ErrorUtils } from '../../utils/error.utils';
 import { EditmessagePage } from '../../pages/usercenter/editmessage/editmessage'
 import { PreviewpagePage } from '../microhome/previewpage/previewpage';
 import { UnpaidorderPage } from '../usercenter/unpaidorder/unpaidorder';
+import { NoticelistPage } from '../usercenter/noticelist/noticelist'
 
 
 @IonicPage()
@@ -162,6 +163,11 @@ export class UserCenterPage implements OnInit {
   generateQRCode(curUserInfo) {
     var thisURL = AppConfig.SERVER_URL + "/mobile/?customerId=" +curUserInfo.id;
     this.createdCode = thisURL;
+  }
+
+  //消息通知
+  gotoNoticelist() {
+    this.navCtrl.push(NoticelistPage);
   }
 
 

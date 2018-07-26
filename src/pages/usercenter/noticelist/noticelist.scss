@@ -1,0 +1,108 @@
+page-noticelist {
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .integralIntroduce{
+      margin-top: 10px;
+      width: 100%;
+      background: #FFFFFF;
+      ul{
+  
+        li{
+          padding:15px;
+          overflow: hidden;
+          //margin: 25px 0;
+          position: relative;
+          border-bottom: 1px solid #e6e6f0;
+          .iconBox{
+            float: left;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            margin-right: 10px;
+            text-align: center;
+            position: relative;
+            .badge{
+              position: absolute;
+              right: -6px;
+              background: #f72b44;
+              width: 22px;
+              height: 22px;
+              border-radius: 100%;
+              line-height: 22px;
+              top: -4px;
+              border:2px solid #FFFFFF;
+            }
+            i{
+              display: inline-block;
+              width: 26px;
+              height: 26px;
+  
+            }
+          }
+          .houseIcon{
+            background: #f4a600;
+            i{
+              background: url("../assets/images/notice/house.svg") no-repeat left;
+              background-size: 100%;
+              margin-top: 10px;
+            }
+          }
+          .assetsIcon{
+            background: #f72b44;
+            i{
+              background: url("../assets/images/notice/gift.svg") no-repeat left;
+              background-size: 100%;
+              margin-top: 12px;
+            }
+          }
+          .serviceIcon{
+            background: #44a5f0;
+            i{
+              background: url("../assets/images/notice/invitation.svg") no-repeat left;
+              background-size: 100%;
+              margin-top: 12px;
+            }
+          }
+          .proIcon{
+            background: #9320ff;
+            i{
+              background: url("../assets/images/notice/pro.svg") no-repeat left;
+              background-size: 100%;
+              margin-top: 12px;
+            }
+          }
+  
+          .messageTextBox{
+            width: 80%;
+            float: left;
+            h2{
+              color: #000;
+              font-size: 1.7rem;
+              line-height: 30px;
+            }
+            p{
+              color: #737799;
+              font-size: 1.3rem;
+            }
+          }
+  
+        }
+      }
+    }
+  
+  
+    @media screen and (max-width: 320px) {
+      .integralIntroduce{
+        ul{
+          li{
+            .messageTextBox{
+              width: 78%;
+            }
+          }
+        }
+      }
+    }
+  }
+  

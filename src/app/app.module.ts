@@ -18,8 +18,8 @@ import { EditmessagePage } from '../pages/usercenter/editmessage/editmessage';
 import { SignupPage } from '../pages/login/signup/signup';
 import { EditusernamePage } from '../pages/usercenter/editmessage/editusername/editusername';
 import { EdituserpasswordPage } from '../pages/usercenter/editmessage/edituserpassword/edituserpassword';
-import { BindphonePage }  from '../pages/usercenter/editmessage/bindphone/bindphone'
-
+import { BindphonePage }  from '../pages/usercenter/editmessage/bindphone/bindphone';
+import { NoticelistPage }   from '../pages/usercenter/noticelist/noticelist';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -46,7 +46,9 @@ import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/un
     SignupPage,
     EditusernamePage,
     EdituserpasswordPage,
-    BindphonePage
+    BindphonePage,
+    NoticelistPage
+    
   ],
   imports: [  //第三方 module
     BrowserModule,
@@ -70,7 +72,8 @@ import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/un
     SignupPage,
     EditusernamePage,
     EdituserpasswordPage,
-    BindphonePage
+    BindphonePage,
+    NoticelistPage
   ],
   providers: [//新建 provider
     StatusBar,

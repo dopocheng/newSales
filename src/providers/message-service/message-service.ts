@@ -27,4 +27,8 @@ readMessage( token, messageId) {
                     .map(mes => mes.json());
   }
 
+  getUnreadMessages(token, customerId) {
+    return this.http.get(AppConfig.apiUrl() + "/message/")
+  }
+
 }
