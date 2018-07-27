@@ -1,0 +1,96 @@
+page-messagelist {
+    .messagesBox{
+      background: #f0f1f9;
+      .list{
+        padding: 10px 15px;
+      }
+      .item{
+        position: relative;
+        margin-bottom: 15px;
+        padding: 5px 10px;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+        .item-inner{
+          border-bottom: none;
+          padding: 0;
+          .recommendInfo{
+            h1{
+              overflow: hidden;
+              span{
+              font-size: 18px;
+                float: left;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                overflow: hidden;
+                color: #000;
+                white-space:normal;
+              }
+              em{
+                float: right;
+                font-size: 12px;
+                color: #8a8c9b;
+                font-style: normal;
+              }
+            }
+            p{
+              color: #525462;
+              line-height: 26px;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+              white-space: normal;
+            }
+  
+  
+          }
+  
+          .recommendService{
+            &.unread:before{
+              width: 35px;
+              height: 35px;
+              content: "";
+              position: absolute;
+              top:0;
+              right:0;
+              display: inline-block;
+              background: url("../assets/images/userCenter/unreadIcon.svg") center no-repeat;
+              background-size: cover;
+            }
+            &.read:before{
+              width: 35px;
+              height: 35px;
+              content: "";
+              position: absolute;
+              top:0;
+              right:0;
+              display: inline-block;
+              background: url("../assets/images/userCenter/readIcon.svg") center no-repeat;
+              background-size: cover;
+            }
+          }
+        }
+      }
+    }
+  
+    .noInfo
+    {
+      text-align: center;
+      h2{
+        text-indent: -9999px;
+        display: inline-block;;
+        width: 100px;
+        height: 100px;
+        margin: 40px 0 0;
+        border-radius: 50%;
+        background: url("../assets/images/userCenter/noNotice.svg") no-repeat center;
+        background-size: cover;
+      }
+      p{
+        font-size: 14px;
+        color: #73779a;
+        padding-top: 20px;
+      }
+    }
+  }
+  

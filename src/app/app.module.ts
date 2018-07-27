@@ -20,6 +20,7 @@ import { EditusernamePage } from '../pages/usercenter/editmessage/editusername/e
 import { EdituserpasswordPage } from '../pages/usercenter/editmessage/edituserpassword/edituserpassword';
 import { BindphonePage }  from '../pages/usercenter/editmessage/bindphone/bindphone';
 import { NoticelistPage }   from '../pages/usercenter/noticelist/noticelist';
+import { MessagelistPage } from '../pages/usercenter/noticelist/messagelist/messagelist'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,6 +31,7 @@ import { UserinfoServiceProvider } from '../providers/userinfo-service/userinfo-
 import { CustomerServiceProvider } from '../providers/customer-service/customer-service';
 import { MessageServiceProvider } from '../providers/message-service/message-service';
 import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/unpaid-order-service';
+import { RecommentListServiceProvider } from '../providers/recomment-list-service/recomment-list-service';
  
 @NgModule({
   declarations: [//新建页面加 和modal
@@ -47,7 +49,8 @@ import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/un
     EditusernamePage,
     EdituserpasswordPage,
     BindphonePage,
-    NoticelistPage
+    NoticelistPage,
+    MessagelistPage
     
   ],
   imports: [  //第三方 module
@@ -73,7 +76,8 @@ import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/un
     EditusernamePage,
     EdituserpasswordPage,
     BindphonePage,
-    NoticelistPage
+    NoticelistPage,
+    MessagelistPage
   ],
   providers: [//新建 provider
     StatusBar,
@@ -85,7 +89,8 @@ import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/un
     CustomerServiceProvider,
     UserinfoServiceProvider,
     MessageServiceProvider,
-    UnpaidOrderServiceProvider
+    UnpaidOrderServiceProvider,
+    RecommentListServiceProvider
   ]
 })
 export class AppModule {}

@@ -28,7 +28,13 @@ readMessage( token, messageId) {
   }
 
   getUnreadMessages(token, customerId) {
-    return this.http.get(AppConfig.apiUrl() + "/message/")
+    return this.http.get(AppConfig.apiUrl() + "/message/unReadCount?access_token=" + token + '&customerId=' +customerId)
+                    .map(res => res.json());
+  }
+
+  getMessagesByTypeAndCustomerId(token, type, customerId, pageSize, index){
+    return this.http.get(AppConfig.apiUrl() + "/message/getByCustomerAndType?access_token=" + token + "&type=" + type + "&customerId=" + customerId + "&pageSize=" + pageSize + "&index=" + index)
+                    .map(res => res.json());
   }
 
 }

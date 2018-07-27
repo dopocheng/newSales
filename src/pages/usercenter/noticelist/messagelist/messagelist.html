@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="messagesBox">
+  <ion-list *ngIf="messages.length <= 0">
+    <div class="noInfo">
+      <h2>引导图</h2>
+      <p>暂无通知信息</p>
+    </div>
+  </ion-list>
+  <ion-list *ngIf="messages.length > 0">
+    <ion-item *ngFor="let message of messages" >
+      <div class="recommendService" [class.unread]="message.readStatus == 0"
+           [class.readed]="message.readStatus == 1" (click)="clickMessage(message)">
+        <!--class名加readOver表示已读-->
+        <div class="recommendInfo readOver">
+          <h1><span>{{message.messageTitle}}</span><em>{{message.createTime}}</em></h1>
+          <p>{{message.messageContent}}</p>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="5%">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="数据加载中...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+
