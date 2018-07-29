@@ -20,7 +20,9 @@ import { EditusernamePage } from '../pages/usercenter/editmessage/editusername/e
 import { EdituserpasswordPage } from '../pages/usercenter/editmessage/edituserpassword/edituserpassword';
 import { BindphonePage }  from '../pages/usercenter/editmessage/bindphone/bindphone';
 import { NoticelistPage }   from '../pages/usercenter/noticelist/noticelist';
-import { MessagelistPage } from '../pages/usercenter/noticelist/messagelist/messagelist'
+import { MessagelistPage } from '../pages/usercenter/noticelist/messagelist/messagelist';
+import { CreatmerchantsPage } from '../pages/creatmerchants/creatmerchants';
+import { WalletPage } from '../pages/usercenter/wallet/wallet'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -50,7 +52,9 @@ import { RecommentListServiceProvider } from '../providers/recomment-list-servic
     EdituserpasswordPage,
     BindphonePage,
     NoticelistPage,
-    MessagelistPage
+    MessagelistPage,
+    CreatmerchantsPage,
+    WalletPage
     
   ],
   imports: [  //第三方 module
@@ -77,7 +81,9 @@ import { RecommentListServiceProvider } from '../providers/recomment-list-servic
     EdituserpasswordPage,
     BindphonePage,
     NoticelistPage,
-    MessagelistPage
+    MessagelistPage,
+    CreatmerchantsPage,
+    WalletPage
   ],
   providers: [//新建 provider
     StatusBar,

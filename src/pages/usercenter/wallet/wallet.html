@@ -1,0 +1,95 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>我的钱包</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div class="walletTop">
+    <ul>
+      <li (click)="Withdrawal()">
+        <img src="../../../assets/images/userCenter/wallet/withdrawalIcon.svg">
+        <span>提现</span>
+      </li>
+      <li>
+        <img src="../../../assets/images/userCenter/wallet/balanceIcon.svg">
+        <span>钱包余额</span>
+        <i>￥{{balance}}</i>
+      </li>
+      <li (click)="Bankcard()">
+        <img src="../../../assets/images/userCenter/wallet/cardIcon.svg">
+        <span>银行卡</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="records">
+    <!--<h1>交易记录</h1>-->
+    <div class="recordCen">
+      <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="rebate">
+          返利交易记录
+        </ion-segment-button>
+        <ion-segment-button value="withdrawal">
+          提现交易记录
+        </ion-segment-button>
+      </ion-segment>
+
+      <div [ngSwitch]="pet">
+        <ion-list *ngSwitchCase="'withdrawal'">
+          <div *ngIf= "withdrawalHidden == true">
+            <div class="cenBox" *ngFor="let withdrawsItem of withdraws.transactionDTOs"  >
+              <div class="cenList"  >
+                <i class="rebateIcon">图标</i>
+                <div class="recordInfo">
+                  <p>提现成功</p>
+                  <em>{{withdrawsItem.createTime}}</em>
+                </div>
+                <div class="amountText withAmountText"><span class="recordText">{{withdrawsItem.price}}元</span></div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="noInfo" *ngIf= "withdrawalHidden == false">
+            <h2>引导图</h2>
+            <p>暂无交易信息</p>
+          </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'rebate'">
+          <div *ngIf= "rebateHidden == true">
+            <div class="cenBox" *ngFor="let rebateItem of rebate">
+              <div class="cenList">
+                <div style="float:left;">
+                  <i class=" {{rebateItem.status == 0 ? 'bookedIcon' : (rebateItem.status == 1 ? 'bookedIcon1' : 'bookedIcon2')}}">图标</i>
+                  <span style="display: block;text-align:center;" class="{{rebateItem.status == 0 ? 'rebateStatus' : (rebateItem.status == 1 ? 'rebateStatus1' : 'rebateStatus2')}}">{{rebateItem.status == 0 ? '审核中' : (rebateItem.status == 1 ? '返利成功' : '返利失败')}}</span>
+                </div>
+                <div class="recordInfo">
+                  <p>推单成功 : 来自<em>{{rebateItem.customerName}}</em>成功下单</p>
+                  <p>品牌 : <em>{{rebateItem.brandName}}</em></p>
+                  <p>购买商品 : <em>{{rebateItem.comboName}}</em></p>
+                  <!--<span>成交金额：￥{{rebateItem.transactionPrice}}</span>-->
+                  <em>{{rebateItem.rebateCreateTime}}</em>
+                </div>
+                <div class="amountText"><span>+{{rebateItem.rebatePrice}}</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="noInfo" *ngIf= "rebateHidden == false">
+            <h2>引导图</h2>
+            <p>暂无交易信息</p>
+          </div>
+        </ion-list>
+    </div>
+
+  </div>
+  </div>
+
+</ion-content>

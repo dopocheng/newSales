@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { MessageServiceProvider } from '../../../../providers/message-service/message-service';
 import { RecommentListServiceProvider } from '../../../../providers/recomment-list-service/recomment-list-service'
 import { ErrorUtils } from '../../../../utils/error.utils';
+
+import { WalletPage } from '../../wallet/wallet'
 import { SigninPage } from '../../../login/signin/signin';
 import { CreatmerchantsPage } from '../../../../pages/creatmerchants/creatmerchants';
 
@@ -192,7 +194,7 @@ export class MessagelistPage implements OnInit {
 
     }
     else if (message.type == 5) { //返利
-      this.navCtrl.push(CreatmerchantsPage, {//WalletPage
+      this.navCtrl.push(WalletPage, {//WalletPage
         readStatus: message.readStatus,
         messageId:message.id,
       });
