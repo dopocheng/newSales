@@ -22,7 +22,9 @@ import { BindphonePage }  from '../pages/usercenter/editmessage/bindphone/bindph
 import { NoticelistPage }   from '../pages/usercenter/noticelist/noticelist';
 import { MessagelistPage } from '../pages/usercenter/noticelist/messagelist/messagelist';
 import { CreatmerchantsPage } from '../pages/creatmerchants/creatmerchants';
-import { WalletPage } from '../pages/usercenter/wallet/wallet'
+import { WalletPage } from '../pages/usercenter/wallet/wallet';
+import { BankcardPage } from '../pages/usercenter/wallet/bankcard/bankcard';
+import { WithdrawalPage } from '../pages/usercenter/wallet/withdrawal/withdrawal'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -34,6 +36,7 @@ import { CustomerServiceProvider } from '../providers/customer-service/customer-
 import { MessageServiceProvider } from '../providers/message-service/message-service';
 import { UnpaidOrderServiceProvider } from '../providers/unpaid-order-service/unpaid-order-service';
 import { RecommentListServiceProvider } from '../providers/recomment-list-service/recomment-list-service';
+import { WalletSeviceProvider } from '../providers/wallet-sevice/wallet-sevice';
  
 @NgModule({
   declarations: [//新建页面加 和modal
@@ -54,7 +57,9 @@ import { RecommentListServiceProvider } from '../providers/recomment-list-servic
     NoticelistPage,
     MessagelistPage,
     CreatmerchantsPage,
-    WalletPage
+    WalletPage,
+    BankcardPage,
+    WithdrawalPage
     
   ],
   imports: [  //第三方 module
@@ -83,7 +88,9 @@ import { RecommentListServiceProvider } from '../providers/recomment-list-servic
     NoticelistPage,
     MessagelistPage,
     CreatmerchantsPage,
-    WalletPage
+    WalletPage,
+    BankcardPage,
+    WithdrawalPage
   ],
   providers: [//新建 provider
     StatusBar,
@@ -96,7 +103,8 @@ import { RecommentListServiceProvider } from '../providers/recomment-list-servic
     UserinfoServiceProvider,
     MessageServiceProvider,
     UnpaidOrderServiceProvider,
-    RecommentListServiceProvider
+    RecommentListServiceProvider,
+    WalletSeviceProvider
   ]
 })
 export class AppModule {}
